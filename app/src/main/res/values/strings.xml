@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">BestStockage</string>
+
+
+    <string name="last_sync">1h</string>
+    <string name="image3">1h</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_change_password">Changer Mot de passe</string>
+    <string name="action_about">A propos</string>
+    <string name="action_synchronisation_globale_start">Syncronisation globale</string>
+    <string name="action_synchronisation_admin_start">Syncronisation admin</string>
+    <string name="action_synchronisation_stock_start">Syncronisation stock</string>
+    <string name="action_synchronisation_operation_start">Syncronisation operation</string>
+    <string name="action_deconnexion">Deconnexion</string>
+    <string name="action_quitter">Quitter</string>
+
+
+
+
+    <string name="tv_entreprise">FATIME FRESH</string>
+    <string name="tv_description_app">Assistant de gestion de stock</string>
+
+    <!-- LAYOUT FRAGMENT AUTHENTIFICATION -->
+    <string name="tvLogin">Login</string>
+    <string name="tvPassword">Mot de passe</string>
+    <string name="btnConnect">Connexion</string>
+    <string name="tvChangerPwd">Changer le mot de passe</string>
+
+    <!-- LAYOUT FRAGMENT HOME -->
+    <string name="tvaucunedonnee">Aucune donnée</string>
+
+    <!-- LAYOUT FRAGMENT ABOUT -->
+    <string name="imgLogo">Logo de l\'application</string>
+    <string name="tvInfoApp">INFORMATION SUR L\'APPLICATION</string>
+    <string name="tvAppNameAbout">Nom: BestStockage</string>
+    <string name="tvAppVersionAbout">Version: 4.0.0</string>
+    <string name="tvAppSystemAbout">Systeme Minimum supporté: Android 9.0 </string>
+    <string name="tvAppConceptorAbout">INFORMATION SUR LE CONCEPTEUR</string>
+    <string name="tvAppConceptorWebsite">https://www.stevekopi.com</string>
+    <string name="tvAppConceptorMail">contact@stevekopi.com</string>
+    <string name="tvAppConceptorTel">+243 81 16 63 111</string>
+
+    <!-- LAYOUT FRAGMENT AGENCE -->
+
+    <string-array name="agences">
+        <item>Kin</item>
+        <item>Dgc</item>
+        <item>Matete</item>
+        <item>Kintambo</item>
+        <item>Kinkole</item>
+        <item>Masina</item>
+        <item>Kinsenso</item>
+        <item>Kingasani</item>
+        <item>Matete</item>
+        <item>Lemba</item>
+        <item>Limete</item>
+        <item>Lingwala</item>
+        <item>Gombe</item>
+        <item>Ngaliema</item>
+        <item>Mont Ngafula</item>
+        <item>Ndjili</item>
+        <item>Nsele</item>
+        <item>Bumbu</item>
+
+    </string-array>
+
+    <string name="Kin">Agence de Usoke</string>
+    <string name="Dgc">Agence de DGC Barr</string>
+    <string name="Matete">Agence de Matete</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_details_caisse">Afficher détails caisse</string>
+    <string name="tv_authentification">AUTHENTIFICATION</string>
+    <string name="tv_detais_depense">DETAILS DES DEPENSES</string>
+    <string name="tv_home_livraison_details">Afficher détails des livraisons</string>
+    <string name="btn_valider">Valider </string>
+    <string name="btn_save">Enregistrer </string>
+    <string name="btn_performance_dateDebut">Date Début</string>
+    <string name="btn_date_selection">choisir date</string>
+    <string name="btn_performance_dateFin">Date Fin</string>
+    <string name="btn_se_connecter"> Se connecter </string>
+    <string name="notification_channel_id">myCanal</string>
+    <string name="notification_channel_title">myTitle</string>
+    <string name="notification_channel_description">This is a test canal</string>
+
+</resources>

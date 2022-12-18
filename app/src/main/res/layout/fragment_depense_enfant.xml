@@ -1,0 +1,95 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_depense"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp">
+    <LinearLayout
+        android:id="@+id/ll_depense_action"
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="Suspicious0dp">
+
+        <ImageButton
+            android:id="@+id/btn_depense_update"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="#2563D5"
+            android:layout_marginBottom="2dp"
+            android:backgroundTintMode="src_in"
+            android:src="@mipmap/ic_update2" />
+
+        <ImageButton
+            android:id="@+id/btn_depense_delete"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="#FF0000"
+            android:backgroundTintMode="src_over"
+            android:src="@mipmap/ic_delete" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F1F1"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+        <TextView
+            android:id="@+id/tv_depense_enfant_date"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Date" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/tv_depense_enfant_fournisseur_caisse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fourn"
+                />
+
+            <TextView
+                android:id="@+id/tv_depense_enfant_montant"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.32"
+                android:gravity="right"
+                android:text="0Fc"
+                android:textColor="#FF0000"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/ll_depense_sync_pos"
+                android:layout_width="@dimen/dim5dp"
+                android:layout_height="@dimen/dim5dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dim5dp"
+                android:background="#FF0000"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_depense_enfant_observation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Obs"
+            android:textColor="#0000FF"
+            android:textAlignment="center"
+            android:textSize="12sp"  />
+    </LinearLayout>
+
+
+
+</LinearLayout>

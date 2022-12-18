@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFullBackGroundFragment"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    tools:context="layout.RapportCaisseView">
+
+    <TextView
+        android:id="@+id/tv_rapport_caisse_parent_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_rapport_caisse_parent_montant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="BARUMBU"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_rapport_caisse_parent_depense"
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgrounLayoutRouge1"
+            android:gravity="start"
+            android:text="TextView"
+            android:textColor="@color/colorBackgrounLayoutBlanc1" />
+
+        <TextView
+            android:id="@+id/tv_rapport_caisse_parent_reste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorBackgrounLayoutVert2"
+            android:gravity="end"
+            android:text="TextView"
+            android:textColor="@color/colorBackgrounLayoutBlanc1" />
+    </LinearLayout>
+
+</LinearLayout>

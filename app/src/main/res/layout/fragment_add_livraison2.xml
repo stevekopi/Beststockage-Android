@@ -1,0 +1,316 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:textAlignment="center">
+
+
+                <ImageView
+                    android:id="@+id/img_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="185px"
+                    android:src="@mipmap/logo" />
+
+                <TextView
+                    android:id="@+id/tv_title_add_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Livraison"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBackgrounLayoutBleu1" />
+
+                <TextView
+                    android:id="@+id/tv_title2_add_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Enregistrement d'une livraison "
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBackgrounLayoutBlanc2" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Appartenance Agence ...." />
+
+                <Spinner
+                    android:id="@+id/spin_appartenanceLivraison"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Propriètaire Agence ..." />
+
+                <Spinner
+                    android:id="@+id/spin_proprietaireLivraison"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="15px"
+                            android:layout_marginRight="15px"
+                            android:text=" Agence   "
+                            />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonAgence"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text=" Fournisseur   "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonFournisseur"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text=" Proprietaire   "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonProprietaire"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text=" Article   "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonArticle"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text=" Utilisateur   "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:id="@+id/tv_vehicule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Véhicule   " />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonVehicule"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:id="@+id/tv_delegue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Delegue   " />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonDelegue"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:id="@+id/tv_driver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Conducteur   " />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonDriver"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:id="@+id/tv_convoyeur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Convoyeur   " />
+
+                <Spinner
+                    android:id="@+id/spin_livraisonConvoyeur"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_livraisonTauxChange"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Taux de change ..."
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_livraisonDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date  ..."
+                        android:inputType="date"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_livraisonQuantite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantité "
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_livraisonBonus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Bonus ..."
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+                    android:id="@+id/btn_saveLivraison2"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center"
+
+                    android:textColor="@color/colorButtonDefault"
+                    android:text="@string/btn_valider" />
+
+    </LinearLayout>
+</ScrollView>

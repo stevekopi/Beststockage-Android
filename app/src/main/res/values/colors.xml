@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorFullBackGroundFragment">#ffffff</color>
+    <color name="colorInfoAbout">#FFEE7F0F</color>
+    <color name="colortvConceptor">#ee0f2d</color>
+
+    <color name="colorBackgrounLayout">#ffff79</color>
+    <color name="colorBackgroundLand">#ffb079</color>
+    <color name="colorBackgroundSw600dp">#ff6979</color>
+    <color name="colorBackgroundSw720dp">#ff0079</color>
+
+    <color name="colorBackgrounLayoutVert">#2ee412</color>
+    <color name="colorBackgrounLayoutBlanc1">#ffffff</color>
+    <color name="colorBackgrounLayoutBlanc2">#cdcde2</color>
+    <color name="colorBackgrounLayoutBlanc3">#dfdfed</color>
+    <color name="colorBackgrounLayoutBleu1">#1d12e4</color>
+    <color name="colorBackgrounLayoutVert2">#08a715</color>
+    <color name="colorBackgrounLayoutRouge1">#b8071f</color>
+    <color name="colorBackgrounLayoutRouge2">#ee0f2d</color>
+    <color name="colorBackgrounLayoutNoir1">#000000</color>
+    <color name="colorBackgrounLayoutNoir2">#4b4141</color>
+    <color name="colorBackgrounLayoutBleu2">#098ff4</color>
+    <color name="colorBackgrounLayoutBleu3">#66b6f3</color>
+    <color name="colorBackgroundLayoutBleu4">#b31e1ee8</color>
+    <color name="colorBackgrounLayoutBlanc4">#64ffffff</color>
+    <color name="colorBackgrounLayoutRouge4">#64ff0000</color>
+    <color name="colorBackgrounLayoutVert4">#500aef3c</color>
+    <color name="colorBackgrounLayoutOrange1">#ffb300</color>
+    <color name="colorBackgrounLayoutOrange2">#ff7300</color>
+    <color name="colorBackgrounLayoutBleu5">#c50e12f4</color>
+
+    <color name="colorBackgroundStandard">#7DA2C4</color>
+    <color name="colorButtonDefault">#646357</color>
+</resources>

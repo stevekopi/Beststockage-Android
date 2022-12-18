@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:backgroundTint="#FFFFFF"
+    tools:context="layout.AboutView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        >
+
+        <ImageView
+            android:background="@drawable/ic_menu_utilisateur"
+            android:layout_gravity="center"
+            android:layout_height="200dp"
+            android:layout_width="240dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ListView
+            android:id="@+id/lv_user"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#FFF"
+            />
+
+        <ListView
+            android:id="@+id/lv_agence_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:addStatesFromChildren="false"
+            android:animateLayoutChanges="true"
+            android:choiceMode="multipleChoiceModal"
+            android:drawSelectorOnTop="false"
+            android:headerDividersEnabled="false"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_close_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_loock_user"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="85dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_open_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_unlook"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="85dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="#2563D5"
+                />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_delete_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_delete"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>

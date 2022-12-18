@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_operation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="3dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:background="#F1F1F1"
+    tools:context="layout.OperationView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_operation_enfant_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/tv_operation_enfant_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="type_operation"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_operation_enfant_agence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.32"
+                android:textSize="12dp"
+                android:gravity="right"
+                android:textColor="#FF0000"
+                android:text="TextView"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <LinearLayout
+                android:id="@+id/ll_operation_confirm"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dim1dp"
+                android:background="#000000"
+                android:orientation="vertical" />
+            <TextView
+                android:id="@+id/tv_operation_is_checked"
+                android:layout_width="10dp"
+                android:layout_height="14dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:text="*" />
+
+
+            <TextView
+                android:id="@+id/tv_operation_enfant_article"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tv_operation_enfant_quantite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.32"
+                android:gravity="right"
+                android:textColor="#0000FF"
+                android:text="TextView" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/ll_operation_sync_pos"
+                android:layout_width="@dimen/dim5dp"
+                android:layout_height="@dimen/dim5dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dim5dp"
+                android:background="#FF0000"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_operation_enfant_montant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="#0000FF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>
+

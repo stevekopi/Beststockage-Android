@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Accueil ">
+        <menu>
+            <item
+                android:id="@+id/nav_accueil"
+                android:icon="@mipmap/ic_home"
+                android:title="Accueil " />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Registre">
+            <menu>
+                <item
+                    android:id="@+id/nav_agence"
+                    android:icon="@drawable/ic_menu_agence"
+                    android:title="Agence"
+                    />
+                <item
+                    android:id="@+id/nav_fournisseur"
+                    android:icon="@drawable/ic_menu_fournisseur"
+                    android:title="Fournisseur" />
+                <item
+                    android:id="@+id/nav_client"
+                    android:icon="@drawable/ic_menu_client"
+                    android:title="Client" />
+                <item
+                    android:id="@+id/nav_user"
+                    android:icon="@drawable/ic_menu_utilisateur"
+                    android:title="Utilisateur" />
+                <item
+                    android:id="@+id/nav_article"
+                    android:icon="@drawable/ic_menu_article"
+                    android:title="Article" />
+
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="Stock">
+        <menu>
+            <item
+                android:id="@+id/nav_stock"
+                android:icon="@drawable/ic_menu_stock"
+                android:title="Stock disponible" />
+            <item
+                android:id="@+id/nav_commande"
+                android:icon="@drawable/ic_menu_commande"
+                android:title="Commande"
+                android:visible="false" />
+            <item
+                android:id="@+id/nav_livraison"
+                android:icon="@drawable/ic_menu_bl_fournisseur"
+                android:title="BL Fournisseur" />
+            <item
+                android:id="@+id/nav_livraison2"
+                android:icon="@drawable/ic_menu_livraison"
+                android:title="Livraison"
+                android:visible="true" />
+            <item
+                android:id="@+id/nav_operation"
+                android:icon="@drawable/ic_menu_operation"
+                android:title="Operation" />
+        </menu>
+    </item>
+
+    <item android:title="Finance ">
+        <menu>
+            <item
+                android:id="@+id/nav_depense"
+                android:icon="@mipmap/ic_money"
+                android:title="Dépense " />
+
+            <item
+                android:id="@+id/nav_operation_finance"
+                android:icon="@drawable/ic_menu_operation_finance"
+                android:title="Operation financière" />
+
+            <item
+                android:id="@+id/nav_rapport_caisse"
+                android:icon="@mipmap/ic_money"
+                android:title="Rapport Caisse " />
+        </menu>
+    </item>
+
+    <item android:title="Divers">
+        <menu>
+            <item
+                android:id="@+id/nav_performance"
+                android:icon="@drawable/ic_menu_stock"
+                android:title="Performance de ventes" />
+            <item
+                android:id="@+id/nav_divers_autres"
+                android:icon="@mipmap/ic_divers"
+                android:title="Autres"
+                android:visible="false" />
+
+        </menu>
+    </item>
+
+
+
+</menu>

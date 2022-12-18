@@ -1,0 +1,100 @@
+package cd.sklservices.com.Beststockage.Cloud;
+
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
+import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+import cd.sklservices.com.Beststockage.Classes.Devise;
+import cd.sklservices.com.Beststockage.Dao.DaoDist;
+import cd.sklservices.com.Beststockage.Interfaces.AsyncResponse;
+import cd.sklservices.com.Beststockage.Outils.AccesHTTP;
+import cd.sklservices.com.Beststockage.Repository.DeviseRepository;
+
+/**
+ * Created by SKL on 23/04/2019.
+ */
+
+public class SyncDevise extends DaoDist implements AsyncResponse {
+
+    private DeviseRepository deviseRepository;
+    public SyncDevise(DeviseRepository repo) {
+        this.deviseRepository = repo ;
+    }
+
+    @Override
+    public void processFinish(String output)
+    {
+        Thread adding_data=new Thread(){
+            public void run (){
+                try{
+
+                    if (output.contains("AddingDate")){
+                        try {
+                            Log.d("Assert","Synchronisation devise "+output);
+                            String data=output;
+                            if(data.contains("ï»¿"))
+                                data= data.replace("ï»¿","");
+                            JSONArray instances=new JSONArray(data);
+                            for (int k=0;k<instances.length();k++){
+                                JSONObject info=new JSONObject(instances.get(k).toString());
+                                String id=info.getString("Id");
+                                String name=info.getString("Name");
+                                String description =info.getString("Description");
+                                String adding_date=info.getString("AddingDate");
+                                String updated_date=info.getString("UpdatedDate");
+                                int sync_pos=info.getInt("SyncPos");
+                                int pos=info.getInt("Pos");
+
+                                Devise devise=new Devise(id,name,description, adding_date,updated_date,sync_pos,pos) ;
+                                deviseRepository.ajout_sync(devise);
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            Log.d("Assert"," Conversion JSONArray get_devises impossible ************************* "+e.toString());
+                        }
+
+                    }
+                }
+                catch (Exception ex){ex.printStackTrace();}
+                finally {
+                    envoi();
+                }
+            }
+        };
+        adding_data.start();
+    }
+
+
+    public void envoi(){
+        try {
+            AccesHTTP accesDonnees=new AccesHTTP();
+            //Lien de delegate
+            accesDonnees.delegate=this;
+            // Appel au serveur
+            String link;
+            if(MainActivity.isFirstRoundSync)
+            {
+                link=AddressFormatForGet("devise",LessMonth());
+            }
+            else
+            {
+                link=AddressFormatForGet("devise",LessDay());
+            }
+
+            accesDonnees.execute(link);
+        }
+        catch (Exception e){
+            Log.d("Assert","Synchronisation devises ********************"+e.toString());
+
+        }
+
+
+    }
+}

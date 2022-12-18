@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorFullBackGroundFragment"
+    android:orientation="vertical"
+    tools:context="layout.CommandeView">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tv_livraison_row_third_article_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="TextView" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_livraison_row_third_quantite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_livraison_row_third_bonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/tv_livraison_row_third_montant"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:elevation="1dp"
+            android:gravity="end"
+            android:text="TextView"
+            android:textColor="@color/colorBackgrounLayoutNoir1"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>
+
+

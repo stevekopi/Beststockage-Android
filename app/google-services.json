@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65519963448",
+    "project_id": "beststockage-50063",
+    "storage_bucket": "beststockage-50063.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65519963448:android:d6f98fc8153af91e1405cd",
+        "android_client_info": {
+          "package_name": "cd.sklservices.com.Beststockage.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65519963448-11ul22ooh160v2vgvubabhtttpjcrgg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIVFYs_4FxyEDGExQH9hozzTe21mdxurc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65519963448-11ul22ooh160v2vgvubabhtttpjcrgg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

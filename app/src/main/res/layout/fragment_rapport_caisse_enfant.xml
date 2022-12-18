@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="layout.RapportCaisseView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_rapport_caisse_enfant_agence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/colorBackgrounLayoutBleu1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_rapport_caisse_enfant_montant_brut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="montant"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorBackgrounLayoutBlanc2"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/tv_rapport_caisse_enfant_depense"
+                android:layout_width="117dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgrounLayoutRouge2"
+                android:gravity="start"
+                android:paddingLeft="5dp"
+                android:text="TextView"
+                android:textColor="@color/colorBackgrounLayoutBlanc1" />
+
+            <TextView
+                android:id="@+id/tv_rapport_caisse_enfant_reste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorBackgrounLayoutVert"
+                android:gravity="end"
+                android:paddingEnd="5dp"
+                android:text="TextView"
+                android:textColor="@color/colorFullBackGroundFragment" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

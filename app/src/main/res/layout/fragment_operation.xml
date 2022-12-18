@@ -1,0 +1,79 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFullBackGroundFragment"
+    tools:context="layout.OperationView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_operations_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="TextView" />
+
+            <include layout="@layout/loadingprogress"
+                android:id="@+id/pb_operation_loading"
+                android:layout_height="25dp"
+                android:layout_width="25dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <SearchView
+                android:id="@+id/sv_operations_filter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            >
+
+            <ExpandableListView
+                android:id="@+id/elv_operation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:addStatesFromChildren="false"
+                android:animateLayoutChanges="true"
+                android:choiceMode="multipleChoiceModal"
+                android:drawSelectorOnTop="false"
+                android:headerDividersEnabled="false"
+                android:orientation="vertical"
+
+                >
+
+            </ExpandableListView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_add"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="#2563D5"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFullBackGroundFragment"
+    android:orientation="vertical"
+    tools:context="layout.OperationView">
+
+    <TextView
+        android:id="@+id/tv_operation_periode"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:background="@color/colorBackgrounLayoutVert2"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="@dimen/fab_margin" />
+
+</LinearLayout>

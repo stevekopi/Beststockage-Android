@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="layout.AboutView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tv_stock_indice"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|center"
+            android:layout_marginTop="4px"
+            android:background="#FFFFFF"
+            android:paddingLeft="10dp"
+            android:textSize="12dp"
+            android:text="1." />
+
+
+        <TextView
+            android:id="@+id/tv_stock_article_designation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginTop="4px"
+            android:gravity="left|center"
+            android:background="#FFFFFF"
+            android:textSize="13dp"
+            android:text="tv_stock_article" />
+
+        <LinearLayout
+            android:id="@+id/lL_tv_stock"
+            android:background="@color/colortvConceptor"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_stock_quantite"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center"
+                android:layout_marginTop="4px"
+                android:textColor="#FFF"
+                android:textSize="13dp"
+                android:text="TextView" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

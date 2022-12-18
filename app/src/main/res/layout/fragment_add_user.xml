@@ -1,0 +1,336 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:textAlignment="center">
+
+
+                <ImageView
+                    android:id="@+id/img_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="185px"
+                    android:src="@mipmap/logo" />
+
+                <TextView
+                    android:id="@+id/tv_title_add_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Stock"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBackgrounLayoutBleu1" />
+
+                <TextView
+                    android:id="@+id/tv_title2_add_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Création d'un nouveau utilisateur de Fatime Fresh"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBackgrounLayoutBlanc2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Catégorie  "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_categorieUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Agence  "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_agenceUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Role   " />
+
+                <Spinner
+                    android:id="@+id/spin_roleUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:text="Sexe   "
+                    />
+
+                <Spinner
+                    android:id="@+id/spin_sexeUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:ems="10"   />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/at_nomUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Noms "
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/at_telephoneUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Téléphone "
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true" />
+            <AutoCompleteTextView
+                android:id="@+id/at_telephoneUser2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Téléphone "
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+            <AutoCompleteTextView
+                android:id="@+id/at_telephoneUser3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Téléphone "
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:text="Adresse ...  "
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:text="Ville  "
+            />
+
+        <Spinner
+            android:id="@+id/at_provinceUser"
+            android:layout_width="match_parent"
+            android:layout_height="70px"
+            android:layout_marginLeft="15px"
+            android:ems="10"   />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:text="District  "
+            />
+
+        <Spinner
+            android:id="@+id/at_districtUser"
+            android:layout_width="match_parent"
+            android:layout_height="70px"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:ems="10"   />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:text="Commune  "
+            />
+
+        <Spinner
+            android:id="@+id/at_communeUser"
+            android:layout_width="match_parent"
+            android:layout_height="70px"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            android:ems="10"   />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/at_quartierUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quartier"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/at_avenueUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Avenue "
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/at_NumeroUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numéro "
+                android:inputType="number"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_loginUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Login"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_passeUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mot de passe"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/at_passe2User"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Rétaper mot de passe"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_saveUser"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center"
+
+                    android:textColor="@color/colorButtonDefault"
+                    android:text="@string/btn_valider" />
+
+    </LinearLayout>
+</ScrollView>

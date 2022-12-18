@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFullBackGroundFragment"
+    tools:context="layout.AboutView">
+
+    <TextView
+        android:id="@+id/tv_operation_row_second_mois"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/actionMenuTextColor"
+        android:layout_weight="1"
+        android:paddingLeft="20dp"
+        android:text="TextView"
+        android:textSize="30sp" />
+    <ImageView
+        android:layout_gravity="end"
+        android:id="@+id/iv_operation_second_group_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_menu_operation"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+</LinearLayout>
