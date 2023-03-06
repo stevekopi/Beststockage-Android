@@ -8,20 +8,22 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import cd.sklservices.com.Beststockage.Cloud.SyncApprovisionnement;
-import cd.sklservices.com.Beststockage.Cloud.SyncBon;
-import cd.sklservices.com.Beststockage.Cloud.SyncBonlivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncLigneBonlivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncLivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncOperation;
-import cd.sklservices.com.Beststockage.Repository.ApprovisionnementRepository;
-import cd.sklservices.com.Beststockage.Repository.BonLivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.BonRepository;
-import cd.sklservices.com.Beststockage.Repository.CommandeRepository;
-import cd.sklservices.com.Beststockage.Repository.LigneBonLivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.LigneCommandeRepository;
-import cd.sklservices.com.Beststockage.Repository.LivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.OperationRepository;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncApprovisionnement;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncBon;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncBonlivraison;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncFacture;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLigneBonlivraison;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLigneFacture;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLivraison;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncOperation;
+import cd.sklservices.com.Beststockage.Repository.Stocks.ApprovisionnementRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.BonLivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.BonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.FactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LigneBonLivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LigneFactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.OperationRepository;
 
 /**
  * Created by SKL on 29/10/2019.
@@ -65,10 +67,9 @@ ServiceManageStock extends Service {
 
         @Override
         public void onFinish() {
-            new SyncOperation(new OperationRepository(getApplication().getApplicationContext())).envoi();
-         //   new SyncCommande(new CommandeRepository(getBaseContext())).envoi();
-          //  new SyncLigneCommande(new LigneCommandeRepository(getBaseContext())).envoi();
             new SyncOperation(new OperationRepository(getBaseContext())).envoi();
+            new SyncFacture(new FactureRepository(getBaseContext())).envoi();
+            new SyncLigneFacture(new LigneFactureRepository(getBaseContext())).envoi();
             new SyncBon(new BonRepository(getBaseContext())).envoi();
             new SyncBonlivraison(new BonLivraisonRepository(getBaseContext())).envoi();
             new SyncLigneBonlivraison(new LigneBonLivraisonRepository(getBaseContext())).envoi();

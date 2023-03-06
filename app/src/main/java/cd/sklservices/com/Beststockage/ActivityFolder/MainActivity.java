@@ -34,78 +34,146 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import cd.sklservices.com.Beststockage.Classes.*;
-import cd.sklservices.com.Beststockage.Cloud.SyncAddress;
-import cd.sklservices.com.Beststockage.Cloud.SyncAgence;
-import cd.sklservices.com.Beststockage.Cloud.SyncApprovisionnement;
-import cd.sklservices.com.Beststockage.Cloud.SyncArticle;
-import cd.sklservices.com.Beststockage.Cloud.SyncBon;
-import cd.sklservices.com.Beststockage.Cloud.SyncBonlivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncCategorie;
-import cd.sklservices.com.Beststockage.Cloud.SyncClient;
-import cd.sklservices.com.Beststockage.Cloud.SyncContenance;
-import cd.sklservices.com.Beststockage.Cloud.SyncControle;
-import cd.sklservices.com.Beststockage.Cloud.SyncConvoyeur;
-import cd.sklservices.com.Beststockage.Cloud.SyncDelegue;
-import cd.sklservices.com.Beststockage.Cloud.SyncDepense;
-import cd.sklservices.com.Beststockage.Cloud.SyncDevise;
-import cd.sklservices.com.Beststockage.Cloud.SyncDistrict;
-import cd.sklservices.com.Beststockage.Cloud.SyncDriver;
-import cd.sklservices.com.Beststockage.Cloud.SyncFournisseur;
-import cd.sklservices.com.Beststockage.Cloud.SyncHuman;
-import cd.sklservices.com.Beststockage.Cloud.SyncIdentity;
-import cd.sklservices.com.Beststockage.Cloud.SyncLigneBonlivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncLivraison;
-import cd.sklservices.com.Beststockage.Cloud.SyncOperation;
-import cd.sklservices.com.Beststockage.Cloud.SyncOperationFinance;
-import cd.sklservices.com.Beststockage.Cloud.SyncQuarter;
-import cd.sklservices.com.Beststockage.Cloud.SyncStreet;
+import cd.sklservices.com.Beststockage.Classes.Finances.Depense;
+import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
+import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
+import cd.sklservices.com.Beststockage.Classes.Registres.Article;
+import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
+import cd.sklservices.com.Beststockage.Classes.Registres.Identity;
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
+import cd.sklservices.com.Beststockage.Classes.Stocks.Approvisionnement;
+import cd.sklservices.com.Beststockage.Classes.Stocks.LigneBonlivraison;
+import cd.sklservices.com.Beststockage.Classes.Stocks.LigneCommande;
+import cd.sklservices.com.Beststockage.Classes.Stocks.Operation;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAddress;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAgence;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncApprovisionnement;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncArticle;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncBon;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncBonlivraison;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncCategorie;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncClient;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncContenance;
+import cd.sklservices.com.Beststockage.Cloud.Controles.SyncControle;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncConvoyeur;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncDelegue;
+import cd.sklservices.com.Beststockage.Cloud.Finances.SyncDepense;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncDevise;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncDistrict;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncDriver;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncFournisseur;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncHuman;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncIdentity;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncFacture;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLigneBonlivraison;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLigneFacture;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncLivraison;
+import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncOperation;
+import cd.sklservices.com.Beststockage.Cloud.Finances.SyncOperationFinance;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncQuarter;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncStreet;
 import cd.sklservices.com.Beststockage.Cloud.SyncTableKeyIncrementor;
-import cd.sklservices.com.Beststockage.Cloud.SyncTown;
-import cd.sklservices.com.Beststockage.Cloud.SyncTownship;
-import cd.sklservices.com.Beststockage.Cloud.SyncUser;
-import cd.sklservices.com.Beststockage.Cloud.SyncUserRole;
-import cd.sklservices.com.Beststockage.Cloud.SyncVehicule;
-import cd.sklservices.com.Beststockage.Repository.AddressRepository;
-import cd.sklservices.com.Beststockage.Repository.AgenceRepository;
-import cd.sklservices.com.Beststockage.Repository.ApprovisionnementRepository;
-import cd.sklservices.com.Beststockage.Repository.ArticleRepository;
-import cd.sklservices.com.Beststockage.Repository.BonLivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.BonRepository;
-import cd.sklservices.com.Beststockage.Repository.CategorieRepository;
-import cd.sklservices.com.Beststockage.Repository.ClientRepository;
-import cd.sklservices.com.Beststockage.Repository.ContenanceRepository;
-import cd.sklservices.com.Beststockage.Repository.ControleRepository;
-import cd.sklservices.com.Beststockage.Repository.ConvoyeurRepository;
-import cd.sklservices.com.Beststockage.Repository.DelegueRepository;
-import cd.sklservices.com.Beststockage.Repository.DepenseRepository;
-import cd.sklservices.com.Beststockage.Repository.DeviseRepository;
-import cd.sklservices.com.Beststockage.Repository.DistrictRepository;
-import cd.sklservices.com.Beststockage.Repository.DriverRepository;
-import cd.sklservices.com.Beststockage.Repository.FournisseurRepository;
-import cd.sklservices.com.Beststockage.Repository.HumanRepository;
-import cd.sklservices.com.Beststockage.Repository.IdentityRepository;
-import cd.sklservices.com.Beststockage.Repository.LigneBonLivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.LivraisonRepository;
-import cd.sklservices.com.Beststockage.Repository.OperationFinanceRepository;
-import cd.sklservices.com.Beststockage.Repository.OperationRepository;
-import cd.sklservices.com.Beststockage.Repository.QuarterRepository;
-import cd.sklservices.com.Beststockage.Repository.StreetRepository;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncTown;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncTownship;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUser;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUserRole;
+import cd.sklservices.com.Beststockage.Cloud.Registres.SyncVehicule;
+import cd.sklservices.com.Beststockage.Repository.Registres.AddressRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.AgenceRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.ApprovisionnementRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.ArticleRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.BonLivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.BonRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.CategorieRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.ClientRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.ContenanceRepository;
+import cd.sklservices.com.Beststockage.Repository.Controles.ControleRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.ConvoyeurRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.DelegueRepository;
+import cd.sklservices.com.Beststockage.Repository.Finances.DepenseRepository;
+import cd.sklservices.com.Beststockage.Repository.Parametres.DeviseRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.DistrictRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.DriverRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.FournisseurRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.HumanRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.IdentityRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.FactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LigneBonLivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LigneFactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.LivraisonRepository;
+import cd.sklservices.com.Beststockage.Repository.Finances.OperationFinanceRepository;
+import cd.sklservices.com.Beststockage.Repository.Stocks.OperationRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.QuarterRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.StreetRepository;
 import cd.sklservices.com.Beststockage.Repository.TableKeyIncrementorRepository;
-import cd.sklservices.com.Beststockage.Repository.TownRepository;
-import cd.sklservices.com.Beststockage.Repository.TownshipRepository;
-import cd.sklservices.com.Beststockage.Repository.UserRepository;
-import cd.sklservices.com.Beststockage.Repository.UserRoleRepository;
-import cd.sklservices.com.Beststockage.Repository.VehiculeRepository;
-import cd.sklservices.com.Beststockage.ViewModel.*;
+import cd.sklservices.com.Beststockage.Repository.Registres.TownRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.TownshipRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.UserRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.UserRoleRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.VehiculeRepository;
 import cd.sklservices.com.Beststockage.R;
 import cd.sklservices.com.Beststockage.Outils.*;
+import cd.sklservices.com.Beststockage.ViewModel.Finances.DepenseViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Finances.OperationFinanceViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Parametres.DeviseViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.ApprovisionnementViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.BonLivraisonViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.BonViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.CommandeViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.LigneBonLivraisonViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.LigneCommandeViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.LivraisonViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.OperationViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.AdresseViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.AgenceViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.ArticleViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.CategorieViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.ClientViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.FournisseurViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.IdentityViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 import layout.*;
+import layout.Finances.DepenseAdd;
+import layout.Finances.DepenseUpdate;
+import layout.Finances.DepenseView;
+import layout.Finances.OperationFinanceView;
+import layout.Finances.RapportCaisseView;
+import layout.Registres.AgenceView;
+import layout.Registres.Agence_detailsView;
+import layout.Registres.ArticleView;
+import layout.Registres.Article_detailsView;
+import layout.Registres.ClientView;
+import layout.Registres.Client_detailsView;
+import layout.Registres.FournisseurView;
+import layout.Registres.Fournisseur_detailsView;
+import layout.Registres.UserView;
+import layout.Registres.UserViewAdd;
+import layout.Registres.User_detailsView;
+import layout.Stocks.BonlivraisonView;
+import layout.Stocks.BonlivraisonViewAdd2;
+import layout.Stocks.Bonlivraison_detailsView;
+import layout.Stocks.CommandeView;
+import layout.Stocks.CommandeViewAdd;
+import layout.Stocks.CommandeViewUpdate;
+import layout.Stocks.Commande_detailsView;
+import layout.Stocks.Livraison1_detailsView;
+import layout.Stocks.LivraisonView1;
+import layout.Stocks.LivraisonViewAdd1;
+import layout.Stocks.LivraisonViewUpdate1;
+import layout.Stocks.LivraisonViewUpdate2;
+import layout.Stocks.OperationAdd;
+import layout.Stocks.OperationUpdate;
+import layout.Stocks.OperationView;
+import layout.Stocks.Operation_detailsView;
+import layout.Stocks.PerformanceAgenceView;
+import layout.Stocks.StockView;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
     public static boolean isFirstRoundSync=true;
     public static boolean isDisconnect=false;
+    public static Devise DefaultDevise,LocalDevise,ConvertDevise;
+
     private static int countRound;
     private final static String COMMON_TAG="Orientation Change ";
     private final static String ACTIVITY_NAME=MainActivity.class.getSimpleName();
@@ -127,7 +195,7 @@ public class MainActivity extends AppCompatActivity
     private BonLivraisonViewModel bonLivraisonViewModel ;
     private CategorieViewModel categorieViewModel ;
     private CommandeViewModel commandeViewModel;
-    private DepenseViewModel  depenseViewModel;
+    private DepenseViewModel depenseViewModel;
     private FournisseurViewModel fournisseurViewModel;
     private IdentityViewModel identityViewModel;
     private LigneBonLivraisonViewModel ligneBonLivraisonViewModel ;
@@ -533,7 +601,6 @@ public class MainActivity extends AppCompatActivity
         addFragment1(new LivraisonViewUpdate1());
     }
 
-
     public void addStock(){
         addFragment1(new OperationAdd());
     }
@@ -634,7 +701,6 @@ public class MainActivity extends AppCompatActivity
         addFragment1(fragment);
     }
 
-
     public void addDepense()
     {
         fragment=new DepenseAdd() ;
@@ -664,6 +730,55 @@ public class MainActivity extends AppCompatActivity
 
        }
     }
+
+    public static void setLocalDevise(Application application){
+        try{
+            Devise devise=new DeviseViewModel(application).getDefaultLocal();
+            if(devise!=null){
+                LocalDevise =devise;
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    public static void setConvertDevise(Application application){
+        try{
+            Devise devise=new DeviseViewModel(application).getDefaultConverter();
+            if(devise!=null){
+                LocalDevise =devise;
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    public static void setDefaultDevise(Application application){
+        try{
+            Devise instance=new DeviseViewModel(application).getDefaultLocal();
+            if(instance!=null){
+                DefaultDevise =instance;
+            }
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    public static Devise getDefaultDevise() {
+        return DefaultDevise;
+    }
+
+    public static Devise getLocalDevise() {
+        return LocalDevise;
+    }
+
+    public static Devise getConvertDevise() {
+        return ConvertDevise;
+    }
+
     public static void setLastAgenceId(String lastAgenceId){
         last_agence_id =lastAgenceId;
     }
@@ -813,13 +928,13 @@ public class MainActivity extends AppCompatActivity
 
                //FINANCIAL
 
-
                new SyncOperationFinance(new OperationFinanceRepository(getBaseContext())).envoi();
                new SyncDepense(new DepenseRepository(getBaseContext())).envoi();
 
 
                //STOCK
-
+               new SyncFacture(new FactureRepository(getBaseContext())).envoi();
+               new SyncLigneFacture(new LigneFactureRepository(getBaseContext())).envoi();
                new SyncOperation(new OperationRepository(getBaseContext())).envoi();
                new SyncBon(new BonRepository(getBaseContext())).envoi();
                new SyncBonlivraison(new BonLivraisonRepository(getBaseContext())).envoi();

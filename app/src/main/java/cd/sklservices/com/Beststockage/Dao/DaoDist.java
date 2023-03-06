@@ -18,8 +18,8 @@ import cd.sklservices.com.Beststockage.Outils.ServiceManageFinancial;
 public class DaoDist {
 
 
-     protected static final String ADRESSE = "https://fatimefresh.online/api/android/" ;
-    // protected static final String ADRESSE = "http://192.168.137.1:88/projects/api.fatimefresh.com/android/";
+    // protected static final String ADRESSE = "https://fatimefresh.online/api/android/" ;
+     protected static final String ADRESSE = "http://192.168.137.1/projects/api/android/";
 
     protected static String AddressFormatForGet(String tableName, Date lastSyncDate)
     {
@@ -52,7 +52,7 @@ public class DaoDist {
        Date date=new Date();
        Calendar c=Calendar.getInstance();
        c.setTime(date);
-       c.add(Calendar.MONTH,-36);
+       c.add(Calendar.MONTH,-48);
        date=c.getTime();
        return date;
     }

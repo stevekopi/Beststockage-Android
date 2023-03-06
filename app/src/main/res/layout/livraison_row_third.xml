@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorFullBackGroundFragment"
     android:orientation="vertical"
-    tools:context="layout.CommandeView">
+    tools:context="layout.Stocks.CommandeView">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

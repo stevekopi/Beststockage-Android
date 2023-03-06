@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.OperationFinanceView">
+    tools:context="layout.Finances.OperationFinanceView">
 
     <LinearLayout
         android:layout_width="match_parent"

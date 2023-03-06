@@ -9,11 +9,11 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
-import cd.sklservices.com.Beststockage.Classes.User;
-import cd.sklservices.com.Beststockage.Cloud.SyncDepense;
-import cd.sklservices.com.Beststockage.Cloud.SyncOperationFinance;
-import cd.sklservices.com.Beststockage.Repository.DepenseRepository;
-import cd.sklservices.com.Beststockage.Repository.OperationFinanceRepository;
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
+import cd.sklservices.com.Beststockage.Cloud.Finances.SyncDepense;
+import cd.sklservices.com.Beststockage.Cloud.Finances.SyncOperationFinance;
+import cd.sklservices.com.Beststockage.Repository.Finances.DepenseRepository;
+import cd.sklservices.com.Beststockage.Repository.Finances.OperationFinanceRepository;
 
 /**
  * Created by SKL on 29/10/2019.

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.BonlivraisonView">
+    tools:context="layout.Stocks.BonlivraisonView">
 
     <LinearLayout
         android:layout_width="match_parent"

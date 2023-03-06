@@ -1,13 +1,11 @@
 package cd.sklservices.com.Beststockage.Repository;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
-import cd.sklservices.com.Beststockage.Classes.Driver;
 import cd.sklservices.com.Beststockage.Classes.TableKeyIncrementor;
 import cd.sklservices.com.Beststockage.Dao.DaoTableKeyIncrementor;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;

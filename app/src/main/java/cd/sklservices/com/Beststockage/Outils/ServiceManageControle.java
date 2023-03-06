@@ -8,8 +8,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import cd.sklservices.com.Beststockage.Cloud.SyncControle;
-import cd.sklservices.com.Beststockage.Repository.ControleRepository;
+import cd.sklservices.com.Beststockage.Cloud.Controles.SyncControle;
+import cd.sklservices.com.Beststockage.Repository.Controles.ControleRepository;
 
 /**
  * Created by SKL on 29/10/2019.

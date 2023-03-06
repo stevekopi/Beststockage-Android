@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import cd.sklservices.com.Beststockage.R;
 
-import cd.sklservices.com.Beststockage.ViewModel.AgenceViewModel;
-import cd.sklservices.com.Beststockage.ViewModel.OperationViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.AgenceViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.OperationViewModel;
 
 /**
  * Created by SKL on 25/04/2019.

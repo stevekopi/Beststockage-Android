@@ -19,12 +19,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Cloud.SyncLogin;
 import cd.sklservices.com.Beststockage.R;
 import cd.sklservices.com.Beststockage.Outils.*;
-import cd.sklservices.com.Beststockage.Classes.*;
-import cd.sklservices.com.Beststockage.Repository.UserRepository;
-import cd.sklservices.com.Beststockage.ViewModel.*;
+import cd.sklservices.com.Beststockage.Repository.Registres.UserRepository;
+import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 
 
 /**

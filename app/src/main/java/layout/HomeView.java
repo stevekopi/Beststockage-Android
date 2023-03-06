@@ -18,15 +18,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 import cd.sklservices.com.Beststockage.Adapters.DetailAdapter;
-import cd.sklservices.com.Beststockage.Classes.Bonlivraison;
-import cd.sklservices.com.Beststockage.Classes.Commande;
+import cd.sklservices.com.Beststockage.Classes.Stocks.Bonlivraison;
+import cd.sklservices.com.Beststockage.Classes.Stocks.Commande;
 import cd.sklservices.com.Beststockage.Classes.RapportCaisseParDate;
-import cd.sklservices.com.Beststockage.Classes.User;
-import cd.sklservices.com.Beststockage.ViewModel.BonLivraisonViewModel;
-import cd.sklservices.com.Beststockage.ViewModel.CommandeViewModel;
-import cd.sklservices.com.Beststockage.ViewModel.RapportCaisseParDateViewModel;
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.BonLivraisonViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.CommandeViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Finances.RapportCaisseParDateViewModel;
 import cd.sklservices.com.Beststockage.R;
-import cd.sklservices.com.Beststockage.ViewModel.UserViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 
 public class HomeView extends Fragment {
 

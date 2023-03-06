@@ -8,11 +8,6 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
-import cd.sklservices.com.Beststockage.ViewModel.DepenseViewModel;
-import cd.sklservices.com.Beststockage.ViewModel.OperationFinanceViewModel;
-import cd.sklservices.com.Beststockage.ViewModel.OperationViewModel;
-
 /**
  * Created by SKL on 29/10/2019.
  */

@@ -1,8 +1,8 @@
 package cd.sklservices.com.Beststockage.Classes;
 
 public class ModelBaseX extends ModelBase{
-    private String adding_user_id;
-    private String adding_agence_id;
+    protected String adding_user_id;
+    protected String adding_agence_id;
 
     public ModelBaseX(String adding_user_id, String adding_agence_id,String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_date, updated_date, sync_pos, pos);

@@ -1,26 +1,18 @@
 package cd.sklservices.com.Beststockage.Cloud;
 
 import android.app.Application;
-import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
-import cd.sklservices.com.Beststockage.ActivityFolder.SecureView;
-import cd.sklservices.com.Beststockage.ActivityFolder.SecureViewLoading;
-import cd.sklservices.com.Beststockage.Classes.Human;
-import cd.sklservices.com.Beststockage.Classes.Identity;
-import cd.sklservices.com.Beststockage.Classes.User;
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Dao.DaoDist;
 import cd.sklservices.com.Beststockage.Interfaces.AsyncResponse;
 import cd.sklservices.com.Beststockage.Outils.AccesHTTP;
-import cd.sklservices.com.Beststockage.Repository.HumanRepository;
-import cd.sklservices.com.Beststockage.Repository.IdentityRepository;
-import cd.sklservices.com.Beststockage.Repository.UserRepository;
+import cd.sklservices.com.Beststockage.Repository.Registres.UserRepository;
 
 /**
  * Created by SKL on 23/04/2019.

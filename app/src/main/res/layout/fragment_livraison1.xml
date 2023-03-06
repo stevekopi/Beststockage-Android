@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.LivraisonView1">
+    tools:context="layout.Stocks.LivraisonView1">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -17,9 +17,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Outils.*;
-import cd.sklservices.com.Beststockage.Classes.*;
-import cd.sklservices.com.Beststockage.ViewModel.UserViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 import cd.sklservices.com.Beststockage.R;
 
 
