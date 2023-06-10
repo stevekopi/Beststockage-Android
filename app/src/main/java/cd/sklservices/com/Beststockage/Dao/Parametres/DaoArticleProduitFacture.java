@@ -35,5 +35,15 @@ public interface DaoArticleProduitFacture {
     @Query("SELECT * FROM article_produit_facture  where sync_pos!='3' and sync_pos!='4'")
     public List<ArticleProduitFacture> gets() ;
 
+    @Query("SELECT * FROM article_produit_facture  WHERE sync_pos!='3' and sync_pos!='4'")
+    List<ArticleProduitFacture> loading() ;
 
+    @Query("SELECT * FROM article_produit_facture  WHERE produit_id LIKE :ProduitId and sync_pos!='3' and sync_pos!='4'")
+    List<ArticleProduitFacture> loadingByProduit(String ProduitId) ;
+
+    @Query("SELECT COUNT(*) FROM article_produit_facture WHERE sync_pos!='3' AND sync_pos!='4'")
+    int count();
+
+    @Query("SELECT * FROM article_produit_facture WHERE produit_id= :Id  and sync_pos!='3' and sync_pos!='4'")
+    public List<ArticleProduitFacture> getByProduitFactureId(String Id) ;
 }

@@ -38,10 +38,18 @@ public interface DaoFacture {
     public List<Facture> select_facture() ;
 
     @Query("SELECT * FROM facture WHERE sync_pos!='3' and sync_pos!='4'  ORDER BY date DESC ")
-    public List<Facture> select_orderbydate_facture() ;
+    public List<Facture> gets_order_by_date() ;
 
     @Query("SELECT * FROM facture WHERE sync_pos = '0' and sync_pos='3' ORDER BY RANDOM() ")
     public List<Facture> select_facture_bysend() ;
 
+    @Query("SELECT * FROM facture  where sync_pos!='3' and sync_pos!='4' ORDER BY date DESC LIMIT 35 ")
+    List<Facture> get_Loading() ;
+
+    @Query("SELECT *  FROM facture WHERE date= :Date AND membership=:membership AND sync_pos != '3' AND sync_pos != '4' ORDER BY date DESC ")
+    public List<Facture> getsByDate(String Date, String membership) ;
+
+    @Query("SELECT DISTINCT(date)  FROM facture WHERE sync_pos != '3' and sync_pos != '4' ORDER BY date DESC ")
+    public List<String> gets_distinct_dates() ;
 
 }

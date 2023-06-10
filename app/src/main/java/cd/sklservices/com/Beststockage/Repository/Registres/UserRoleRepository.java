@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.UserRole;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoUserRole;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoUserRole;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
 
 /**

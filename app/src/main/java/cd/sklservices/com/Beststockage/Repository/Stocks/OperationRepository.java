@@ -419,8 +419,8 @@ public class OperationRepository {
         return   daoOperation.getOtherOperation(instance.getUser_id(),instance.getArticle_id(),type,instance.getAdding_date());
     }
 
-    public List<Operation> select_byAgence_operation(String agenceId) {
-        return daoOperation.select_byAgence_operation(agenceId) ;
+    public List<Operation> stock_agence(String agenceId) {
+        return daoOperation.stock_agence(agenceId) ;
     }
 
     @Transaction
@@ -452,6 +452,18 @@ public class OperationRepository {
         catch (Exception e){
             return 0;
         }
-
     }
+
+    public int quantite_stock(String agence_id, String article_id)
+    {
+        try{
+            int qa=daoOperation.quantite_add(agence_id, article_id);
+            int ql=daoOperation.quantite_less(agence_id, article_id);
+            return qa - ql;
+        }
+        catch (Exception e){
+            return 0;
+        }
+    }
+
 }

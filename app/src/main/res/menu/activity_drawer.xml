@@ -10,34 +10,32 @@
         </menu>
     </item>
 
-    <group android:checkableBehavior="single">
-        <item android:title="Registre">
-            <menu>
-                <item
-                    android:id="@+id/nav_agence"
-                    android:icon="@drawable/ic_menu_agence"
-                    android:title="Agence"
-                    />
-                <item
-                    android:id="@+id/nav_fournisseur"
-                    android:icon="@drawable/ic_menu_fournisseur"
-                    android:title="Fournisseur" />
-                <item
-                    android:id="@+id/nav_client"
-                    android:icon="@drawable/ic_menu_client"
-                    android:title="Client" />
-                <item
-                    android:id="@+id/nav_user"
-                    android:icon="@drawable/ic_menu_utilisateur"
-                    android:title="Utilisateur" />
-                <item
-                    android:id="@+id/nav_article"
-                    android:icon="@drawable/ic_menu_article"
-                    android:title="Article" />
+    <item android:title="Registre">
+        <menu>
+            <item
+                android:id="@+id/nav_agence"
+                android:icon="@drawable/ic_menu_agence"
+                android:title="Agence"
+                />
+            <item
+                android:id="@+id/nav_fournisseur"
+                android:icon="@drawable/ic_menu_fournisseur"
+                android:title="Fournisseur" />
+            <item
+                android:id="@+id/nav_client"
+                android:icon="@drawable/ic_menu_client"
+                android:title="Client" />
+            <item
+                android:id="@+id/nav_user"
+                android:icon="@drawable/ic_menu_utilisateur"
+                android:title="Utilisateur" />
+            <item
+                android:id="@+id/nav_article"
+                android:icon="@drawable/ic_menu_article"
+                android:title="Article" />
 
-            </menu>
-        </item>
-    </group>
+        </menu>
+    </item>
 
     <item android:title="Stock">
         <menu>
@@ -63,6 +61,11 @@
                 android:id="@+id/nav_operation"
                 android:icon="@drawable/ic_menu_operation"
                 android:title="Operation" />
+
+            <item
+                android:id="@+id/nav_facture"
+                android:icon="@drawable/ic_menu_operation"
+                android:title="Facture" />
         </menu>
     </item>
 
@@ -82,6 +85,25 @@
                 android:id="@+id/nav_rapport_caisse"
                 android:icon="@mipmap/ic_money"
                 android:title="Rapport Caisse " />
+        </menu>
+    </item>
+
+    <item android:title="Parametres ">
+        <menu>
+            <item
+                android:id="@+id/nav_devise"
+                android:icon="@drawable/ic_devise"
+                android:title="Devise " />
+
+            <item
+                android:id="@+id/nav_article_produit_facture"
+                android:icon="@drawable/ic_article_produit_facture"
+                android:title="Article-Produit Facture " />
+
+            <item
+                android:id="@+id/nav_taux"
+                android:icon="@drawable/ic_taux"
+                android:title="Taux" />
         </menu>
     </item>
 

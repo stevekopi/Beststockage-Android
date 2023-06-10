@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/tv_row_devise_code"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left|center_vertical"
+            android:text="CDF  "
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/tv_row_devise_designation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:layout_gravity="left|center_vertical"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="FRANC CONGOLAIS - FC"
+                android:textColor="#0000AA"
+                />
+            <TextView
+                android:id="@+id/tv_row_devise_count_lines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:textSize="10sp"
+                android:text="2 Lignes"
+                android:textColor="#FF0000"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -84,7 +84,6 @@ public class AgenceViewModel extends AndroidViewModel {
         for (Agence a:list){
             instances.add(get(a.getId(),false,true));
         }
-
         return instances;
     }
 

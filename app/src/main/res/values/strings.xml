@@ -18,7 +18,7 @@
     <string name="action_quitter">Quitter</string>
 
 
-
+    <string name="montant_net">Montant Net</string>
 
     <string name="tv_entreprise">FATIME FRESH</string>
     <string name="tv_description_app">Assistant de gestion de stock</string>
@@ -43,6 +43,11 @@
     <string name="tvAppConceptorMail">contact@stevekopi.com</string>
     <string name="tvAppConceptorTel">+243 81 16 63 111</string>
 
+    <!-- LAYOUT FRAGMENT ARTICLE -->
+    <string name="article">Article</string>
+    <string name="article_bonus">Article Bns</string>
+    <string name="quantite">Qte</string>
+    <string name="quantite_bonus">Qte Bns</string>
     <!-- LAYOUT FRAGMENT AGENCE -->
 
     <string-array name="agences">
@@ -79,6 +84,7 @@
     <string name="tv_detais_depense">DETAILS DES DEPENSES</string>
     <string name="tv_home_livraison_details">Afficher détails des livraisons</string>
     <string name="btn_valider">Valider </string>
+    <string name="btn_add_insert">Inserer </string>
     <string name="btn_save">Enregistrer </string>
     <string name="btn_performance_dateDebut">Date Début</string>
     <string name="btn_date_selection">choisir date</string>

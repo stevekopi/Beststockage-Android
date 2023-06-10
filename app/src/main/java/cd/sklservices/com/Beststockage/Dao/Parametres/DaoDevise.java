@@ -32,17 +32,21 @@ public interface DaoDevise {
     @Query("SELECT * FROM devise WHERE id LIKE  :Id ")
     public Devise get(String Id) ;
 
-    @Query("SELECT * FROM devise WHERE is_default =1 ")
+    @Query("SELECT * FROM devise WHERE is_default =1  and sync_pos!=3 and sync_pos!=4")
     public Devise getDefault();
 
-    @Query("SELECT * FROM devise WHERE is_local =1 ")
-    public Devise getDefaultLocal();
+    @Query("SELECT * FROM devise WHERE is_local =1 and sync_pos!=3 and sync_pos!=4")
+    public Devise getLocal();
 
-    @Query("SELECT * FROM devise WHERE is_default_converter =1 ")
+    @Query("SELECT * FROM devise WHERE is_default_converter =1  and sync_pos!=3 and sync_pos!=4")
     public Devise getDefaultConverter() ;
 
     @Query("SELECT * FROM devise  where sync_pos!='3' and sync_pos!='4'")
     public List<Devise> select_devise() ;
 
+    @Query("SELECT COUNT(*) FROM devise  WHERE sync_pos!='3' and sync_pos!='4'")
+    int count();
 
+    @Query("SELECT * FROM devise  WHERE sync_pos!='3' and sync_pos!='4'")
+    public List<Devise> loading();
 }

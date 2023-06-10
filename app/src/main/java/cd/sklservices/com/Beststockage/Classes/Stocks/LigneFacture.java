@@ -3,18 +3,15 @@ package cd.sklservices.com.Beststockage.Classes.Stocks;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import cd.sklservices.com.Beststockage.Classes.Finances.OperationFinance;
 import cd.sklservices.com.Beststockage.Classes.ModelBaseXR;
 import cd.sklservices.com.Beststockage.Classes.Parametres.ArticleProduitFacture;
-import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
-import cd.sklservices.com.Beststockage.Classes.Parametres.PaymentMode;
-import cd.sklservices.com.Beststockage.Classes.Parametres.ProduitFacture;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Registres.Article;
-import cd.sklservices.com.Beststockage.Classes.Registres.Identity;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
 
 @Entity(tableName = "ligne_facture",
@@ -22,20 +19,21 @@ import cd.sklservices.com.Beststockage.Classes.Registres.User;
         @Index("id"),@Index("facture_id"),@Index("article_produit_facture_id"),
         @Index("operation_finance_id"),@Index("article_bonus_id"),@Index("adding_agence_id"),
         @Index("checking_agence_id"),@Index("adding_user_id"),@Index("last_update_user_id")},
+
         foreignKeys = {
-                @ForeignKey(entity = Facture.class,parentColumns = "id",childColumns = "facture_id",onUpdate = ForeignKey.CASCADE),
-                @ForeignKey(entity = ArticleProduitFacture.class,parentColumns = "id",childColumns = "article_produit_facture_id",onUpdate = ForeignKey.CASCADE),
-                @ForeignKey(entity = OperationFinance.class,parentColumns = "id",childColumns = "operation_finance_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = Facture.class,parentColumns = "id",childColumns = "facture_id",onUpdate = ForeignKey.CASCADE),
+        //@ForeignKey(entity = ArticleProduitFacture.class,parentColumns = "id",childColumns = "article_produit_facture_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = OperationFinance.class,parentColumns = "id",childColumns = "operation_finance_id",onUpdate = ForeignKey.CASCADE),
 
-                @ForeignKey(entity = Article.class,parentColumns = "id",childColumns = "article_bonus_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = Article.class,parentColumns = "id",childColumns = "article_bonus_id",onUpdate = ForeignKey.CASCADE),
 
-                @ForeignKey(entity = Agence.class,parentColumns = "id",childColumns = "checking_agence_id",onUpdate = ForeignKey.CASCADE),
-                @ForeignKey(entity = Agence.class,parentColumns = "id",childColumns = "adding_agence_id",onUpdate = ForeignKey.CASCADE),
-                @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "adding_user_id",onUpdate = ForeignKey.CASCADE),
-                @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "last_update_user_id",onUpdate = ForeignKey.CASCADE)}
+        @ForeignKey(entity = Agence.class,parentColumns = "id",childColumns = "checking_agence_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = Agence.class,parentColumns = "id",childColumns = "adding_agence_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "adding_user_id",onUpdate = ForeignKey.CASCADE),
+        @ForeignKey(entity = User.class,parentColumns = "id",childColumns = "last_update_user_id",onUpdate = ForeignKey.CASCADE)}
 )
 
-public class LigneFacture extends ModelBaseXR {
+public class LigneFacture extends ModelBaseXR implements Cloneable{
     @PrimaryKey
     @NonNull
     private String id;
@@ -55,11 +53,26 @@ public class LigneFacture extends ModelBaseXR {
     private Double montant_net;
     private String article_bonus_id;
     private int bonus;
-    private boolean is_checked;
-    private boolean is_confirmed;
+    private int is_checked;
+    private int is_confirmed;
     private String checking_agence_id;
+    @Ignore
+    private Facture Facture;
 
-    public LigneFacture(@NonNull String id, String second_id, String facture_id, String appartenance, String article_produit_facture_id, String operation_finance_id, String sens_stock, int quantite, Double montant_ht,Double montant_ttc, Double converted_amount, Double montant_local, Double reduction,Double tva,Double montant_net, String article_bonus_id, int bonus, boolean is_checked, boolean is_confirmed, String checking_agence_id,String adding_user_id, String last_update_user_id, String adding_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
+    @Ignore Article ArticleBonus;
+
+    @Ignore ArticleProduitFacture ArticleProduitFacture;
+
+    @Ignore
+    public LigneFacture(Facture facture){
+        Facture=facture;
+        this.adding_agence_id= facture.getAdding_agence_id();
+        this.adding_user_id=facture.getAdding_user_id();
+        this.last_update_user_id=facture.getLast_update_user_id();
+        this.checking_agence_id=facture.getChecking_agence_id();
+    }
+
+    public LigneFacture(@NonNull String id, String second_id, String facture_id, String appartenance, String article_produit_facture_id, String operation_finance_id, String sens_stock, int quantite, Double montant_ht,Double montant_ttc, Double converted_amount, Double montant_local, Double reduction,Double tva,Double montant_net, String article_bonus_id, int bonus, int is_checked, int is_confirmed, String checking_agence_id,String adding_user_id, String last_update_user_id, String adding_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_user_id, last_update_user_id, adding_agence_id, adding_date, updated_date, sync_pos, pos);
         this.id = id;
         this.second_id = second_id;
@@ -146,6 +159,7 @@ public class LigneFacture extends ModelBaseXR {
 
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+        ComputeNumbers();
     }
 
     public Double getMontant_ht() {
@@ -188,11 +202,11 @@ public class LigneFacture extends ModelBaseXR {
         this.tva = tva;
     }
 
-    public boolean isIs_checked() {
+    public int getIs_checked() {
         return is_checked;
     }
 
-    public boolean isIs_confirmed() {
+    public int getIs_confirmed() {
         return is_confirmed;
     }
 
@@ -235,5 +249,83 @@ public class LigneFacture extends ModelBaseXR {
 
     public void setChecking_agence_id(String checking_agence_id) {
         this.checking_agence_id = checking_agence_id;
+    }
+
+    public void setIs_checked(int is_checked) {
+        this.is_checked = is_checked;
+    }
+
+    public void setIs_confirmed(int is_confirmed) {
+        this.is_confirmed = is_confirmed;
+    }
+
+    public cd.sklservices.com.Beststockage.Classes.Stocks.Facture getFacture() {
+        return Facture;
+    }
+
+    public void setFacture(cd.sklservices.com.Beststockage.Classes.Stocks.Facture facture) {
+        Facture = facture;
+        facture_id=facture.getId();
+        this.appartenance=facture.getMembership();
+        this.sens_stock=facture.getProduit().getSens_stock();
+    }
+
+    public Article getArticleBonus() {
+        return ArticleBonus;
+    }
+
+    public void setArticleBonus(Article articleBonus) {
+        ArticleBonus = articleBonus;
+    }
+
+    public cd.sklservices.com.Beststockage.Classes.Parametres.ArticleProduitFacture getArticleProduitFacture() {
+        return ArticleProduitFacture;
+    }
+
+    public void setArticleProduitFacture(cd.sklservices.com.Beststockage.Classes.Parametres.ArticleProduitFacture articleProduitFacture) {
+        ArticleProduitFacture = articleProduitFacture;
+        article_produit_facture_id=articleProduitFacture.getId();
+    }
+
+    public void ComputeNumbers()
+    {
+        double montantReduit=0;
+
+       if(ArticleProduitFacture!=null){
+           double tvaRating = ArticleProduitFacture.getTva_rate() / 100;
+           montant_ht = quantite * ArticleProduitFacture.getMontant_ht();
+           if(Facture.getReduction_rate()>0){
+               reduction = montant_ht * (double)(Facture.getReduction_rate()/100);
+               montantReduit = montant_ht - reduction;
+               tva = montantReduit * tvaRating;
+               montant_ttc = montant_ht + tva;
+               montant_net= montant_ttc - reduction;
+           }else{
+
+               tva = montant_ht * tvaRating;
+               montant_ttc = montant_ht + tva;
+               montant_net= montant_ttc;
+           }
+       }
+
+        if(montant_net!=null){
+            montant_net=(double)Math.round(montant_net);
+        }
+        else{
+            montant_net=0.0;
+        }
+    }
+
+    public Object clone(){
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public LigneFacture copie(){
+        return (LigneFacture) clone();
     }
 }

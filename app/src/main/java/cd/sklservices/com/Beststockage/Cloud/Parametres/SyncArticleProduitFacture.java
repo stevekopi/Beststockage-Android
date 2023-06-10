@@ -70,7 +70,8 @@ public class SyncArticleProduitFacture extends DaoDist implements AsyncResponse 
 
                     }
                 }
-                catch (Exception ex){ex.printStackTrace();}
+                catch (Exception ex){
+                    ex.printStackTrace();}
                 finally {
                     envoi();
                 }

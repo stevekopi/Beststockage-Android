@@ -35,5 +35,12 @@ public interface DaoProduitFacture {
     @Query("SELECT * FROM produit_facture  where sync_pos!='3' and sync_pos!='4'")
     public List<ProduitFacture> gets() ;
 
+    @Query("SELECT * FROM produit_facture  WHERE type='Base' and sync_pos!='3' and sync_pos!='4' ORDER BY designation ASC")
+    List<ProduitFacture> loading() ;
 
+    @Query("SELECT DISTINCT(devise_id) FROM produit_facture WHERE sync_pos!='5' AND sync_pos!='4'")
+    List<String> getDistinctDevisesId();
+
+    @Query("SELECT * FROM produit_facture WHERE devise_id=:deviseId AND type='Base'")
+    List<ProduitFacture>getByDeviseId(String deviseId);
 }

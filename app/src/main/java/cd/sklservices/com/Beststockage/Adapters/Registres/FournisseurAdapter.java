@@ -15,7 +15,7 @@ import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
 import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
 import cd.sklservices.com.Beststockage.Outils.MesOutils;
 import cd.sklservices.com.Beststockage.R;
-import layout.Registres.FournisseurView;
+import cd.sklservices.com.Beststockage.layout.Registres.FournisseurView;
 
 /**
  * Created by SKL on 25/04/2019.

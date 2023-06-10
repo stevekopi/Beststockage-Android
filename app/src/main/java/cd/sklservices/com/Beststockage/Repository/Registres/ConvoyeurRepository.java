@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Convoyeur;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoConvoyeur;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoConvoyeur;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
 
 /**

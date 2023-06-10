@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Delegue;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoDelegue;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoDelegue;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
 
 /**

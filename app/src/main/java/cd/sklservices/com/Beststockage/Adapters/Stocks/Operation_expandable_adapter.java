@@ -16,9 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
 import cd.sklservices.com.Beststockage.Outils.MesOutils;
 import cd.sklservices.com.Beststockage.R;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Operation;
+import cd.sklservices.com.Beststockage.ViewModel.Parametres.DeviseViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.AgenceViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.ArticleViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.OperationViewModel;
@@ -211,7 +213,8 @@ public class Operation_expandable_adapter extends BaseExpandableListAdapter {
             }
 
             if (instance.getType().toLowerCase().contains("vente")) {
-                tv_operation_montant.setText(MesOutils.spacer(String.valueOf(instance.getMontant().intValue())) +" "+ instance.getDevise_id());
+                Devise devise=new DeviseViewModel(MainActivity.application).get(instance.getDevise_id());
+                tv_operation_montant.setText(MesOutils.spacer(String.valueOf(instance.getMontant().intValue())) +" "+ devise.getCode());
                 tv_operation_montant.setHeight(80);
                 tv_operation_montant.setVisibility(View.VISIBLE);
 

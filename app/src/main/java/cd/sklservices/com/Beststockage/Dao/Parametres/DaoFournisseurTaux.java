@@ -35,8 +35,13 @@ public interface DaoFournisseurTaux {
     @Query("SELECT * FROM fournisseur_taux  where sync_pos!='3' and sync_pos!='4'")
     public List<FournisseurTaux> gets();
 
-    @Query("SELECT * FROM fournisseur_taux  where fournisseur_id =:fournisseur_id AND `from`=:from_id AND `to`=:to_id AND statut=1 AND sync_pos!='3' and sync_pos!='4'")
+    @Query("SELECT amount FROM fournisseur_taux  where fournisseur_id =:fournisseur_id AND from_id=:from_id AND to_id=:to_id AND statut=1 AND sync_pos!='3' and sync_pos!='4'")
     public double GetConvertedAmount(String fournisseur_id,String from_id,String to_id);
 
+    @Query("SELECT * FROM fournisseur_taux  WHERE  sync_pos!='3' and sync_pos!='4' order by statut desc, date desc")
+    List<FournisseurTaux> loading() ;
+
+    @Query("SELECT COUNT(*) FROM fournisseur_taux WHERE sync_pos!=3 AND sync_pos!=4")
+    int count();
 
 }

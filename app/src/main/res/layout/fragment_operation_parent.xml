@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
     android:orientation="vertical"
-    tools:context="layout.Stocks.OperationView">
+    tools:context=".layout.Stocks.OperationView">
 
     <TextView
         android:id="@+id/tv_operation_periode"

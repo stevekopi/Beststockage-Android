@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.HomeView"
+    tools:context=".layout.HomeView"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
@@ -40,8 +40,8 @@
                 android:background="#0000FF"
                 android:gravity="center"
                 android:orientation="vertical">
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
+
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -68,8 +68,7 @@
                 android:background="#FF0000"
                 android:gravity="center"
                 android:orientation="vertical">
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
+               >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -95,8 +94,7 @@
                 android:background="#4AA24E"
                 android:gravity="center"
                 android:orientation="vertical">
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -132,8 +130,7 @@
                 android:background="#0000FF"
                 android:gravity="center"
                 android:orientation="vertical">
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -160,8 +157,7 @@
                 android:background="#FF0000"
                 android:gravity="center"
                 android:orientation="vertical">
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
+
 
                 <TextView
                     android:layout_width="match_parent"

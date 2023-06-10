@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.AboutView">
+    tools:context=".layout.AboutView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +54,6 @@
                     android:paddingBottom="1dp"
                     android:gravity="center_vertical|left"
                     android:text="Nom de l'agence "
-                    android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="15sp" />
 

@@ -28,22 +28,22 @@ import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 
 public class BonlivraisonTreeLevelListViewAdapter extends BaseExpandableListAdapter {
 
-    private ArticleViewModel daoArticle ;
-    private UserViewModel daoUser ;
+    private ArticleViewModel articleViewModel;
+    private UserViewModel userViewModel;
     List<String> parentHeaders;
     List<Bonlivraison[]>secondLevel;
     private Context context;
     List<LinkedHashMap<String,LigneBonlivraison[]>> data;
 
-    public BonlivraisonTreeLevelListViewAdapter(Context context, ArticleViewModel daoA, UserViewModel daoUse ,
+    public BonlivraisonTreeLevelListViewAdapter(Context context, ArticleViewModel articleViewModel, UserViewModel userViewModel ,
                                                 List<String> parentHeaders, List<Bonlivraison[]>secondLevel,
                                                 List<LinkedHashMap<String,LigneBonlivraison[]>> data){
         this.context=context;
         this.secondLevel=secondLevel;
         this.parentHeaders=parentHeaders;
         this.data=data;
-        this.daoArticle = daoA ;
-        this.daoUser = daoUse ;
+        this.articleViewModel = articleViewModel ;
+        this.userViewModel = userViewModel ;
     }
 
     @Override
@@ -153,7 +153,7 @@ public class BonlivraisonTreeLevelListViewAdapter extends BaseExpandableListAdap
                 childData.add(secondLevelData.get(key));
             }
 
-           secondLevelELV.setAdapter(new BonlivraisonSecondLevelAdapter(context, daoArticle, daoUser, headers, childData));
+           secondLevelELV.setAdapter(new BonlivraisonSecondLevelAdapter(context, articleViewModel, userViewModel, headers, childData));
            secondLevelELV.setGroupIndicator(null);
 
             secondLevelELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {

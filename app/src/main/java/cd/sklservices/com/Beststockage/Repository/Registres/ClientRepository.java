@@ -7,7 +7,7 @@ import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Client;
 import cd.sklservices.com.Beststockage.Classes.Registres.Identity;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoClient;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoClient;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
 
 /**

@@ -54,6 +54,7 @@ public class SyncFacture extends DaoDist implements AsyncResponse {
                                 String PaymentModeId=info.getString("PaymentModeId");
                                 String Membership=info.getString("Membership");
                                 String Date =info.getString("Date");
+                                double ReductionRate =info.getDouble("ReductionRate");
                                 String DeviseId=info.getString("DeviseId");
                                 String ConvertDeviseId=info.getString("ConvertDeviseId");
                                 String LocalDeviseId=info.getString("LocalDeviseId");
@@ -67,7 +68,7 @@ public class SyncFacture extends DaoDist implements AsyncResponse {
                                 int sp=info.getInt("SyncPos");
                                 int pos=info.getInt("Pos");
 
-                                Facture facture=new Facture(id,SecondId,ProduitId,AgenceId,Agence2Id,UserId,ProprietaireId,PaymentModeId,Membership,Date,DeviseId,
+                                Facture facture=new Facture(id,SecondId,ProduitId,AgenceId,Agence2Id,UserId,ProprietaireId,PaymentModeId,Membership,Date,ReductionRate,DeviseId,
                                         ConvertDeviseId,LocalDeviseId,Observation,CheckingAgenceId,au_id,luu_id,aa_id,ad,ud,sp,pos);
 
 
@@ -136,6 +137,7 @@ public class SyncFacture extends DaoDist implements AsyncResponse {
                         jsonParam.put("PaymentModeId", instance.getPayment_mode_id());
                         jsonParam.put("Membership", instance.getMembership());
                         jsonParam.put("Date", instance.getDate());
+                        jsonParam.put("ReductionRate", instance.getReduction_rate());
                         jsonParam.put("DeviseId", instance.getDevise_id());
                         jsonParam.put("ConvertDeviseId", instance.getConvert_devise_id());
                         jsonParam.put("LocalDeviseId", instance.getDevise_local_id());

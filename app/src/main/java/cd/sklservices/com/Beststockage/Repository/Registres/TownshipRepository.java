@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Township;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoTownship;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoTownship;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
 
 /**

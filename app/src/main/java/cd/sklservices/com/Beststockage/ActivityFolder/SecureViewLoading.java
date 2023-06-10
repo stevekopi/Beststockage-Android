@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncFournisseurTaux;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAddress;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAgence;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncArticle;
@@ -30,6 +31,7 @@ import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUser;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUserRole;
 import cd.sklservices.com.Beststockage.Outils.Session;
 import cd.sklservices.com.Beststockage.R;
+import cd.sklservices.com.Beststockage.Repository.Parametres.FournisseurTauxRepository;
 import cd.sklservices.com.Beststockage.Repository.Registres.AddressRepository;
 import cd.sklservices.com.Beststockage.Repository.Registres.AgenceRepository;
 import cd.sklservices.com.Beststockage.Repository.Registres.ArticleRepository;
@@ -88,6 +90,7 @@ public class SecureViewLoading extends AppCompatActivity  {
             new SyncAgence(new AgenceRepository(getBaseContext())).envoi();
             new SyncUserRole(new UserRoleRepository(getBaseContext())).envoi();
             new SyncUser(new UserRepository(getBaseContext())).envoi();
+            new SyncFournisseurTaux(new FournisseurTauxRepository(getBaseContext())).envoi();
 
 
 

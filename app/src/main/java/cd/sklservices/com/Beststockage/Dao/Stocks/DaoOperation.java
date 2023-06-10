@@ -81,8 +81,8 @@ public interface DaoOperation {
     @Query("SELECT * FROM operation WHERE sync_pos LIKE '0' or sync_pos LIKE '3'")
     public List<Operation> select_operation_bysend() ;
 
-    @Query("SELECT * FROM operation as o inner join article as a on o.article_id=a.id WHERE (o.agence_1_id= :Id_agence OR o.agence_2_id= :Id_agence) and o.sync_pos!='3' and o.sync_pos!='4' ORDER BY a.designation")
-    public List<Operation> select_byAgence_operation(String Id_agence) ;
+    @Query("SELECT * FROM operation as o inner join article as a on o.article_id=a.id WHERE (o.agence_1_id= :Id_agence OR o.agence_2_id= :Id_agence) and o.sync_pos!='3' and o.sync_pos!='4'  group by agence_1_id,article_id,sens_stock  ORDER BY a.designation")
+    public List<Operation> stock_agence(String Id_agence) ;
 
     @Query("SELECT * FROM operation WHERE agence_1_id= :Id_agence AND article_id= :Id_article " +
             " AND sync_pos!='3' and sync_pos!='4'  ")

@@ -40,7 +40,7 @@ public class BonRepository {
 
 
     public List<Bon> getBonLoading() {
-        return daobon.select_bonLoading () ;
+        return daobon.get_Loading() ;
     }
 
     public void setBonsArrayListe(List<Bon> bonsArrayListe) {
@@ -125,7 +125,7 @@ public class BonRepository {
         try{
 
             List<Bon> mylist =
-                    daobon.select_bon_order_by_date() ;
+                    daobon.gets_order_by_date() ;
             instance.setBonsArrayListe(mylist);
 
         }

@@ -182,7 +182,6 @@ public class BonLivraisonRepository {
             Log.d("Assert","BonlivraisonRepository.getByDateBonlivraison(): "+e.toString());
             return  null;
         }
-
     }
 
     public void delete(Bonlivraison b)

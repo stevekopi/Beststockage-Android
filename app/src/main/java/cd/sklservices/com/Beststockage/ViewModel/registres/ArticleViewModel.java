@@ -72,6 +72,11 @@ public class ArticleViewModel extends AndroidViewModel {
         return repository.getArticlesArrayListe() ;
     }
 
+    public List<Article> get_all()
+    {
+        return repository.get_all() ;
+    }
+
     public List<Article> getArticlesByDesignation(String designation) {
         return repository.getArticlesByDesignation(designation) ;
     }

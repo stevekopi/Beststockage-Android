@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.AboutView">
+    tools:context=".layout.AboutView">
 
     <TextView
         android:id="@+id/tv_operation_row_first_annee"

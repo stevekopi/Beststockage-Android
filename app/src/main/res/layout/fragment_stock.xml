@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.Stocks.StockView">
+    tools:context=".layout.Stocks.StockView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:gravity="center"
             android:text="TextView" />
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/sv_stocks_filter"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -1,12 +1,19 @@
 package cd.sklservices.com.Beststockage.Classes;
 
+import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+
 public class ModelBase {
     private String adding_date ;
     private String updated_date ;
     private int sync_pos ;
     private int pos ;
 
-    public ModelBase(){}
+    public ModelBase(){
+        this.adding_date = MainActivity.getAddingDate();
+        this.sync_pos = 0;
+        this.updated_date=MainActivity.getAddingDate();
+        this.pos=0;
+    }
 
     public ModelBase(String adding_date,String updated_date, int sync_pos,int pos) {
         this.adding_date = adding_date;

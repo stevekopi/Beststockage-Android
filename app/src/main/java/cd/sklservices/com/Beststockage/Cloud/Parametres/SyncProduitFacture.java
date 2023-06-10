@@ -41,14 +41,15 @@ public class SyncProduitFacture extends DaoDist implements AsyncResponse {
                             for (int k=0;k<instances.length();k++){
                                 JSONObject info=new JSONObject(instances.get(k).toString());
                                 String id=info.getString("Id");
+                                String devise_id=info.getString("DeviseId");
                                 String second_id=info.getString("SecondId");
                                 String designation=info.getString("Designation");
                                 String type =info.getString("Type");
-                                Boolean with_bonus =info.getBoolean("WithBonus");
+                                int with_bonus =info.getInt("WithBonus");
                                 String sens_stock =info.getString("SensStock");
                                 String sens_finance =info.getString("SensFinance");
-                                Boolean default_checked =info.getBoolean("DefaultChecked");
-                                Boolean default_confirmed =info.getBoolean("DefaultConfirmed");
+                                int default_checked =info.getInt("DefaultChecked");
+                                int default_confirmed =info.getInt("DefaultConfirmed");
                                 String aa_id=info.getString("AddingAgenceId");
                                 String au_id=info.getString("AddingUserId");
                                 String luu_id=info.getString("LastUpdateUserId");
@@ -57,20 +58,19 @@ public class SyncProduitFacture extends DaoDist implements AsyncResponse {
                                 int sp=info.getInt("SyncPos");
                                 int pos=info.getInt("Pos");
 
-                                ProduitFacture produitFacture=new ProduitFacture(id,second_id,designation,type,with_bonus,sens_stock,
+                                ProduitFacture produitFacture=new ProduitFacture(id,devise_id,second_id,designation,type,with_bonus,sens_stock,
                                         sens_finance,default_checked,default_confirmed,au_id,luu_id,aa_id,ad,ud,sp,pos) ;
                                 produitFactureRepository.ajout_sync(produitFacture);
 
                             }
-
-
                         } catch (JSONException e) {
                             Log.d("Assert"," Conversion JSONArray get_produitFacture impossible ************************* "+e.toString());
                         }
-
                     }
                 }
-                catch (Exception ex){ex.printStackTrace();}
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
                 finally {
                     envoi();
                 }

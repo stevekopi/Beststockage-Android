@@ -186,8 +186,8 @@ public class OperationViewModel extends AndroidViewModel {
         return repository.getOperationWhere(Id_agence) ;
     }
 
-    public List<Operation> select_byAgence_operation(String Id_agence){
-        return repository.select_byAgence_operation(Id_agence) ;
+    public List<Operation> stock_agence(String Id_agence){
+        return repository.stock_agence(Id_agence) ;
     }
 
 

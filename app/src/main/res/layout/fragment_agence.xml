@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.Registres.AgenceView">
+    tools:context=".layout.Registres.AgenceView">
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="vertical">
 
-       <SearchView
+       <androidx.appcompat.widget.SearchView
           android:id="@+id/sv_agences_filter"
           android:layout_width="match_parent"
           android:layout_height="match_parent" />

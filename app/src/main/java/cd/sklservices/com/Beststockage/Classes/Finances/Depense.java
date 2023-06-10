@@ -10,7 +10,6 @@ import java.util.Locale;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
 import cd.sklservices.com.Beststockage.Classes.AmountModelBase;
-import cd.sklservices.com.Beststockage.Classes.ModelBaseX;
 import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
@@ -107,7 +106,12 @@ public class Depense extends AmountModelBase implements Comparable<Depense> {
 
     public void setDate(String date) {
         this.date = date;
-        this.operationFinance.setDate(date);
+        if(this.operationFinance!=null)
+            this.operationFinance.setDate(date);
+        else{
+            this.operationFinance=new OperationFinance();
+            this.operationFinance.setDate(date);
+        }
     }
 
     public String getObservation() {

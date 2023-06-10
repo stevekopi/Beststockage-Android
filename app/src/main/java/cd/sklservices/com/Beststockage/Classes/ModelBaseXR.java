@@ -1,7 +1,14 @@
 package cd.sklservices.com.Beststockage.Classes;
 
+import androidx.room.Ignore;
+
 public class ModelBaseXR extends ModelBaseX{
     protected String last_update_user_id;
+
+    @Ignore
+    public ModelBaseXR(){
+
+    }
 
     public ModelBaseXR(String adding_user_id,String last_update_user_id, String adding_agence_id,String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_user_id,adding_agence_id,adding_date, updated_date, sync_pos, pos);

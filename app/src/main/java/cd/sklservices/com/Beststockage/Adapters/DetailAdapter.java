@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import cd.sklservices.com.Beststockage.R;
-import layout.Registres.AgenceView;
+import cd.sklservices.com.Beststockage.layout.Registres.AgenceView;
 
 /**
  * Created by SKL on 25/04/2019.

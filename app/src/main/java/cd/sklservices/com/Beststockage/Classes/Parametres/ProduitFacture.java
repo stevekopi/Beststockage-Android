@@ -21,18 +21,20 @@ public class ProduitFacture extends ModelBaseXR {
     @PrimaryKey
     @NonNull
     private String id;
+    private String devise_id;
     private String second_id;
     private String designation;
     private String type;
-    private boolean with_bonus;
+    private int with_bonus;
     private String sens_stock;
     private String sens_finance;
-    private boolean default_checked;
-    private boolean default_confirmed;
+    private int default_checked;
+    private int default_confirmed;
 
-    public ProduitFacture(@NonNull String id, String second_id, String designation, String type, boolean with_bonus, String sens_stock, String sens_finance, boolean default_checked, boolean default_confirmed,String adding_user_id, String last_update_user_id, String adding_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
+    public ProduitFacture(@NonNull String id,String devise_id, String second_id, String designation, String type, int with_bonus, String sens_stock, String sens_finance, int default_checked, int default_confirmed,String adding_user_id, String last_update_user_id, String adding_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_user_id, last_update_user_id, adding_agence_id, adding_date, updated_date, sync_pos, pos);
         this.id = id;
+        this.devise_id = devise_id;
         this.second_id = second_id;
         this.designation = designation;
         this.type = type;
@@ -41,6 +43,14 @@ public class ProduitFacture extends ModelBaseXR {
         this.sens_finance = sens_finance;
         this.default_checked = default_checked;
         this.default_confirmed = default_confirmed;
+    }
+
+    public String getDevise_id() {
+        return devise_id;
+    }
+
+    public void setDevise_id(String devise_id) {
+        this.devise_id = devise_id;
     }
 
     @NonNull
@@ -76,11 +86,11 @@ public class ProduitFacture extends ModelBaseXR {
         this.type = type;
     }
 
-    public boolean isWith_bonus() {
+    public int getWith_bonus() {
         return with_bonus;
     }
 
-    public void setWith_bonus(boolean with_bonus) {
+    public void setWith_bonus(int with_bonus) {
         this.with_bonus = with_bonus;
     }
 
@@ -100,19 +110,19 @@ public class ProduitFacture extends ModelBaseXR {
         this.sens_finance = sens_finance;
     }
 
-    public boolean isDefault_checked() {
+    public int getDefault_checked() {
         return default_checked;
     }
 
-    public void setDefault_checked(boolean default_checked) {
+    public void setDefault_checked(int default_checked) {
         this.default_checked = default_checked;
     }
 
-    public boolean isDefault_confirmed() {
+    public int getDefault_confirmed() {
         return default_confirmed;
     }
 
-    public void setDefault_confirmed(boolean default_confirmed) {
+    public void setDefault_confirmed(int default_confirmed) {
         this.default_confirmed = default_confirmed;
     }
 }

@@ -3,15 +3,14 @@ package cd.sklservices.com.Beststockage.Classes.Parametres;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import cd.sklservices.com.Beststockage.Classes.Finances.OperationFinance;
 import cd.sklservices.com.Beststockage.Classes.ModelBaseXR;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Registres.Article;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
-import cd.sklservices.com.Beststockage.Classes.Stocks.Facture;
 
 @Entity(tableName = "article_produit_facture",indices = {@Index("id")},
         foreignKeys = {
@@ -36,6 +35,13 @@ public class ArticleProduitFacture extends ModelBaseXR {
     private Double montant_ttc;
     private String devise_id;
     private int quantite_min;
+
+    @Ignore
+    private Article Article;
+
+    @Ignore
+    private ProduitFacture ProduitFacture;
+
 
     public ArticleProduitFacture(@NonNull String id, String article_id, String produit_id, Double montant_ht, Double tva_rate, Double tva, Double montant_ttc, String devise_id, int quantite_min,String adding_user_id, String last_update_user_id, String adding_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_user_id, last_update_user_id, adding_agence_id, adding_date, updated_date, sync_pos, pos);
@@ -121,5 +127,21 @@ public class ArticleProduitFacture extends ModelBaseXR {
 
     public void setQuantite_min(int quantite_min) {
         this.quantite_min = quantite_min;
+    }
+
+    public cd.sklservices.com.Beststockage.Classes.Registres.Article getArticle() {
+        return Article;
+    }
+
+    public void setArticle(cd.sklservices.com.Beststockage.Classes.Registres.Article article) {
+        Article = article;
+    }
+
+    public cd.sklservices.com.Beststockage.Classes.Parametres.ProduitFacture getProduitFacture() {
+        return ProduitFacture;
+    }
+
+    public void setProduitFacture(cd.sklservices.com.Beststockage.Classes.Parametres.ProduitFacture produitFacture) {
+        ProduitFacture = produitFacture;
     }
 }

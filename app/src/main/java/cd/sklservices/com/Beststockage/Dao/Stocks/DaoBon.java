@@ -37,11 +37,11 @@ public interface DaoBon {
 
 
     @Query("SELECT * FROM bon  where sync_pos!='3' and sync_pos!='4' ORDER BY date DESC ")
-    List<Bon> select_bon_order_by_date() ;
+    List<Bon> gets_order_by_date() ;
 
 
     @Query("SELECT * FROM bon  where sync_pos!='3' and sync_pos!='4' ORDER BY date DESC LIMIT 35 ")
-    List<Bon> select_bonLoading() ;
+    List<Bon> get_Loading() ;
 
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Article;
 import cd.sklservices.com.Beststockage.Classes.Registres.Contenance;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoArticle;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoArticle;
 import cd.sklservices.com.Beststockage.Outils.*;
 
 /**
@@ -42,11 +42,14 @@ public class ArticleRepository {
 
     public List<Article> getArticlesArrayListe() {
         List<Article> instances=new ArrayList<>();
-        for (Article item:daoarticle.select_article() ){
+        for (Article item:daoarticle.get_all() ){
             instances.add(get(item.getId(),true,true));
         }
         return  instances;
+    }
 
+    public List<Article> get_all() {
+     return  daoarticle.get_all();
     }
 
     public List<Article> getArticlesByDesignation(String designation) {
@@ -98,7 +101,7 @@ public class ArticleRepository {
 
         try{
             ArrayList arrayList=new ArrayList();
-            List<Article> mylist =  daoarticle.select_article() ;
+            List<Article> mylist =  daoarticle.get_all() ;
             instance.setArticlesArrayListe(mylist);
 
         }

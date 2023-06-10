@@ -7,7 +7,7 @@ import android.util.Log;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoAgence;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoAgence;
 import cd.sklservices.com.Beststockage.Outils.*;
 
 /**

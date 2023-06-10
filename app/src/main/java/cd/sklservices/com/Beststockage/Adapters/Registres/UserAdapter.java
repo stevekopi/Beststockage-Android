@@ -18,7 +18,7 @@ import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.R;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.ViewModel.registres.AgenceViewModel;
-import layout.Registres.UserView;
+import cd.sklservices.com.Beststockage.layout.Registres.UserView;
 
 /**
  * Created by SKL on 25/04/2019.

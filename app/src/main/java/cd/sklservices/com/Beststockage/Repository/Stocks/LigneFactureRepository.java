@@ -62,6 +62,56 @@ public class LigneFactureRepository {
         else{return  ligne ;}
     }
 
+    public LigneFacture[] getByFactureId(String factureId){
+        try{
+            int k = 0 ;
+
+            LigneFacture[] ligneFactures = null ;
+
+            List<LigneFacture> lignes =
+                    daoligne.get_by_facture_id(factureId);
+
+            ligneFactures=new LigneFacture[lignes.size()];
+
+            for (LigneFacture ligne : lignes){
+
+                ligneFactures[k] = ligne ;
+                k++ ;
+            }
+
+            return ligneFactures;
+
+        }
+        catch (Exception e){
+            Log.d("Assert","LigneFactureRepository.getByFactureId(): "+e.toString());
+            return  null;
+        }
+    }
+
+    public int add_async(LigneFacture instance)
+    {
+        try{
+            LigneFacture old = get(instance.getId()) ;
+            if(old == null)
+            {
+                daoligne.insert(instance);
+                return 1;
+            }
+            else
+            {
+                if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+                {
+                    daoligne.update(instance);
+                    return 1;
+                }
+            }
+        }
+        catch (Exception e){
+            Log.d("Assert","LigneFactureRepository.ajout_async(): "+e.toString());
+        }
+        return -1;
+    }
+
     public void ajout_sync(LigneFacture instance)
     {
         LigneFacture old = get(instance.getId()) ;
@@ -92,10 +142,31 @@ public class LigneFactureRepository {
 
         }
         catch (Exception e){
-            Log.d("Assert"," Dao ligne bon facture  "+e.toString());
+            Log.d("Assert"," Dao lignefacture  "+e.toString());
         }
         return null;
     }
+
+    public int quantite_stock(String agence_id,String article_id){
+
+        try{
+            int q_add=daoligne.quantite_add(agence_id,article_id);
+            int q_less=daoligne.quantite_less(agence_id,article_id);
+
+            int b_add=daoligne.bonus_add(agence_id,article_id);
+            int b_less=daoligne.bonus_less(agence_id,article_id);
+
+            int rep=q_add-q_less+b_add-b_less;
+
+            return rep;
+
+        }
+        catch (Exception e){
+            Log.d("Assert"," Dao ligneFacture  "+e.toString());
+        }
+        return 0;
+    }
+
 
 
     public AsyncTask delete2(String Id){
@@ -225,6 +296,7 @@ public class LigneFactureRepository {
             return null;
         }
     }
+
 
     public List<LigneFacture> ligne_facture_from_facture2(String FactureId){
 

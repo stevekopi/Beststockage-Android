@@ -68,7 +68,9 @@ public class Operation extends ModelBase implements Comparable<Operation> {
 
     public Operation(){
         super();
-       // this.operationFinance=new OperationFinance();
+        if(this.operationFinance==null)
+            this.operationFinance=new OperationFinance();
+
         this.operationFinance.setType("Entree");
         categorieCaisse= MainActivity.getCurrentUser().getAgence().getType().toLowerCase(Locale.ROOT).equals("depot")?"Maison":MainActivity.getCurrentUser().getAgence().getType();
 
@@ -339,7 +341,12 @@ public class Operation extends ModelBase implements Comparable<Operation> {
     public void setDate(String date) {
 
         this.date = date;
-        this.operationFinance.setDate(date);
+        if(this.operationFinance!=null)
+            this.operationFinance.setDate(date);
+        else{
+            this.operationFinance=new OperationFinance();
+            this.operationFinance.setDate(date);
+        }
     }
 
     public String getChecking_agence_id() {

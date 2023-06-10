@@ -7,6 +7,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Facture;
 import cd.sklservices.com.Beststockage.Dao.Stocks.DaoFacture;
 import cd.sklservices.com.Beststockage.Dao.Stocks.DaoLigneFacture;
@@ -68,11 +69,29 @@ public class FactureRepository {
         return instance;
     }
 
+    public List<Facture> getLoading() {
+        return daofacture.get_Loading() ;
+    }
+
+    public void gets(){
+
+        try{
+
+            List<Facture> mylist =
+                    daofacture.gets_order_by_date() ;
+            instance.setFactureArrayList(mylist);
+
+        }
+        catch (Exception e){
+            Log.d("Assert","DaoBonLoc.gets() "+e.toString());
+        }
+    }
+
     public ArrayList<Facture> getDistinct(){
         try{
 
             ArrayList arrayListe=new ArrayList();
-            List<Facture> mylist =  daofacture.select_orderbydate_facture();
+            List<Facture> mylist =  daofacture.gets_order_by_date();
 
             for (Facture c : mylist){
 
@@ -91,31 +110,78 @@ public class FactureRepository {
     public List<Facture> getList(){
         try{
 
-            return  daofacture.select_orderbydate_facture() ;
+            return  daofacture.gets_order_by_date() ;
           }
         catch (Exception e){
-            Log.d("Assert","DaoFactureLoc().getDistinct : "+e.toString());
+            Log.d("Assert","DaoFactureLoc().getList : "+e.toString());
             return  null;
 
         }
     }
 
+    public List<Facture> getsByDate(String date){
+        try{
+            return daofacture.getsByDate(date, MainActivity.getCurrentUser().getAgence().getAppartenance());
+        }
+        catch (Exception e){
+            Log.d("Assert","FactureRepository.getByDate(): "+e.toString());
+            return  null;
+        }
+    }
 
+
+    public int add_sync(Facture instance)
+    {
+        try{
+            Facture old = get(instance.getId(),false) ;
+            if(old == null)
+            {
+                instance.setDevise_local_id(instance.getDevise_id());
+                instance.setConvert_devise_id(instance.getDevise_id());
+
+                daofacture.insert(instance);
+                return  1;
+            }
+            else
+            {
+                if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+                {
+                    daofacture.update(instance) ;
+                    return  1;
+                }
+            }
+
+        }
+        catch (Exception e){
+
+            Log.d("Assert","DaoFactureLoc.getQuantiteFacturer() : "+e.toString());
+            return  0;
+        }
+        return  0;
+    }
 
     public void ajout_sync(Facture instance)
     {
-        Facture old = get(instance.getId(),false) ;
-        if(old == null)
-        {
-            daofacture.insert(instance);
-        }
-        else
-        {
-            if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+        try{
+            Facture old = get(instance.getId(),false) ;
+            if(old == null)
             {
-                daofacture.update(instance) ;
+                daofacture.insert(instance);
             }
+            else
+            {
+                if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+                {
+                    daofacture.update(instance) ;
+                }
+            }
+
         }
+        catch (Exception e){
+
+            Log.d("Assert","DaoFactureLoc.getQuantiteFacturer() : "+e.toString());
+        }
+
     }
 
 
@@ -162,6 +228,19 @@ public class FactureRepository {
             Log.d("Assert","DaoFactureLoc().getDistinct : "+e.toString());
             return  null;
 
+        }
+    }
+
+    public List<String> getDistinctDates(){
+
+        try{
+
+            return   daofacture.gets_distinct_dates();
+
+        }
+        catch (Exception e){
+            Log.d("Assert","DFactureRepository.getDistinctDatess : "+e.toString());
+            return null;
         }
     }
 

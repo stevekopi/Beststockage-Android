@@ -54,15 +54,15 @@ public class SyncLigneFacture extends DaoDist implements AsyncResponse {
                                 int Quantite=info.getInt("Quantite");
                                 Double MontantHt=info.getDouble("MontantHt");
                                 Double MontantTtc =info.getDouble("MontantTtc");
-                                Double ConvertAmount=info.getDouble("ConvertAmount");
+                                Double ConvertedAmount=info.getDouble("ConvertedAmount");
                                 Double MontantLocal=info.getDouble("MontantLocal");
                                 Double Reduction=info.getDouble("Reduction");
                                 Double Tva=info.getDouble("Tva");
                                 Double MontantNet=info.getDouble("MontantNet");
                                 String ArticleBonusId=info.getString("ArticleBonusId");
                                 int Bonus =info.getInt("Bonus");
-                                Boolean IsChecked=info.getBoolean("IsChecked");
-                                Boolean IsConfirmed=info.getBoolean("IsConfirmed");
+                                int IsChecked=info.getInt("IsChecked");
+                                int IsConfirmed=info.getInt("IsConfirmed");
                                 String CheckingAgenceId =info.getString("CheckingAgenceId");
                                 String aa_id=info.getString("AddingAgenceId");
                                 String au_id=info.getString("AddingUserId");
@@ -76,7 +76,7 @@ public class SyncLigneFacture extends DaoDist implements AsyncResponse {
                                 String VerifAgenceId2=info.getString("VerifAgenceId2");
 
                                 LigneFacture ligneFacture=new LigneFacture(id,SecondId,FactureId,Appartenance,ArticleProduitFactureId,OperationFinanceId,SensStock,
-                                        Quantite,MontantHt,MontantTtc,ConvertAmount,MontantLocal,Reduction,Tva,MontantNet,ArticleBonusId,Bonus,IsChecked,IsConfirmed,CheckingAgenceId,
+                                        Quantite,MontantHt,MontantTtc,ConvertedAmount,MontantLocal,Reduction,Tva,MontantNet,ArticleBonusId,Bonus,IsChecked,IsConfirmed,CheckingAgenceId,
                                         au_id,luu_id,aa_id,ad,ud,sp,pos);
 
 
@@ -92,7 +92,8 @@ public class SyncLigneFacture extends DaoDist implements AsyncResponse {
 
                     }
                 }
-                catch (Exception ex){ex.printStackTrace();}
+                catch (
+                        Exception ex){ex.printStackTrace();}
                 finally {
                 }
             }
@@ -152,8 +153,8 @@ public class SyncLigneFacture extends DaoDist implements AsyncResponse {
                         jsonParam.put("MontantNet", instance.getMontant_net());
                         jsonParam.put("ArticleBonusId", instance.getArticle_bonus_id());
                         jsonParam.put("Bonus", instance.getBonus());
-                        jsonParam.put("IsChecked", instance.isIs_checked());
-                        jsonParam.put("IsConfirmed", instance.isIs_confirmed());
+                        jsonParam.put("IsChecked", instance.getIs_checked());
+                        jsonParam.put("IsConfirmed", instance.getIs_confirmed());
                         jsonParam.put("AddingAgenceId", instance.getAdding_agence_id());
                         jsonParam.put("CheckingAgenceId", instance.getChecking_agence_id());
                         jsonParam.put("AddingUserId", instance.getAdding_user_id());

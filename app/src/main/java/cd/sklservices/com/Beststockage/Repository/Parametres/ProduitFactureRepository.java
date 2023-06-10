@@ -7,6 +7,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
 import cd.sklservices.com.Beststockage.Classes.Parametres.ProduitFacture;
 import cd.sklservices.com.Beststockage.Dao.Parametres.DaoProduitFacture;
 import cd.sklservices.com.Beststockage.Outils.MyDataBase;
@@ -49,17 +50,23 @@ public class ProduitFactureRepository {
 
     public void ajout_sync(ProduitFacture instance)
     {
-        ProduitFacture old = get(instance.getId()) ;
-        if(old == null)
-        {
-            daoproduitFacture.insert(instance);
-        }
-        else
-        {
-            if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+        try{
+            ProduitFacture old = get(instance.getId()) ;
+            if(old == null)
             {
-                daoproduitFacture.update(instance) ;
+                daoproduitFacture.insert(instance);
             }
+            else
+            {
+                if (instance.getPos()>old.getPos() || old.getSync_pos()==0 || old.getSync_pos()==3)
+                {
+                    daoproduitFacture.update(instance) ;
+                }
+            }
+
+        }
+        catch (Exception e){
+            Log.d("Assert"," DaoAgenceLoc.get() "+e.toString());
         }
     }
 
@@ -114,9 +121,30 @@ public class ProduitFactureRepository {
         else{return  produitFacture.getId();}
     }
 
+    public List<ProduitFacture> getLoading() {
+        try{
+            return daoproduitFacture.loading();
+        }
+        catch (Exception e){
+
+        }
+        return null;
+    }
+
+    public void setInstance(ProduitFacture instance){
+        ProduitFactureRepository.produitFacture=instance;
+    }
 
     public static final Context getContext(){
         return context;
+    }
+
+    public List<String> getDistinctDevisesId(){
+        return daoproduitFacture.getDistinctDevisesId();
+    }
+
+    public List<ProduitFacture> getByDevise(Devise devise){
+        return daoproduitFacture.getByDeviseId(devise.getId());
     }
 
 }

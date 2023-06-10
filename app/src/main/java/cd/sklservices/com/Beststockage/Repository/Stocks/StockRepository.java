@@ -6,11 +6,12 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Operation;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Stock;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoAgence;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoArticle;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoAgence;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoArticle;
 import cd.sklservices.com.Beststockage.Dao.Stocks.DaoOperation;
 import cd.sklservices.com.Beststockage.Outils.*;
 
@@ -46,33 +47,12 @@ public class StockRepository {
         return StockRepository.instance;
     }
 
-
-    public ArrayList<Agence> getDistinctAgence(){
-        try{
-
-
-            ArrayList stockAgenceArrayListe=new ArrayList();
-
-            List<Agence> mylist =  daoAgence.select_agence() ;
-
-            for (Agence ag : mylist){
-                stockAgenceArrayListe.add(ag);
-            }
-
-            return stockAgenceArrayListe;
-         }
-        catch (Exception e){
-            Log.d("Assert","Erreur: "+e.toString());
-        }
-        return  null;
-    }
-
     public int Qte(String agence_id, String article_id)
     {
         try{
-            int qa=daoOperation.quantite_add(agence_id, article_id);
-            int ql=daoOperation.quantite_less(agence_id, article_id);
-            return qa - ql;
+            int qt_operation=new OperationRepository(MainActivity.application).quantite_stock(agence_id,article_id);
+            int qt_facture=new LigneFactureRepository(MainActivity.application).quantite_stock(agence_id,article_id);
+            return qt_operation + qt_facture;
         }
         catch (Exception e){
             return 0;

@@ -9,7 +9,7 @@ import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUser;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoUser;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoUser;
 import cd.sklservices.com.Beststockage.Outils.*;
 
 /**

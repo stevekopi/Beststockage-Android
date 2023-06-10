@@ -6,7 +6,7 @@
     android:background="@color/colorFullBackGroundFragment"
     android:orientation="vertical"
     android:paddingTop="5dp"
-    tools:context="layout.Finances.RapportCaisseView">
+    tools:context=".layout.Finances.RapportCaisseView">
 
     <TextView
         android:id="@+id/tv_rapport_caisse_parent_date"

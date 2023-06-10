@@ -7,8 +7,6 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import cd.sklservices.com.Beststockage.Classes.AmountModelBase;
-import cd.sklservices.com.Beststockage.Classes.ModelBaseX;
-import cd.sklservices.com.Beststockage.Classes.ModelBaseXR;
 import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
@@ -45,7 +43,10 @@ public class OperationFinance extends AmountModelBase {
     @Ignore
     private Fournisseur fournisseur;
 
+    @Ignore
+    public OperationFinance(){
 
+    }
     @Ignore
     public OperationFinance( @NonNull String id, String agence_id, String fournisseur_id, String devise_id, String categorie, String date, String type, Double montant, String observation, String insert_mode, int is_caisse_checked, int is_stock_checked, int is_user_confirmed,String adding_user_id, String adding_agence_id,String checking_agence_id, String adding_date, String updated_date, int sync_pos, int pos) {
         super(montant,0.0,0.0,devise_id,"","",adding_user_id,adding_agence_id,adding_date,updated_date,sync_pos,pos);

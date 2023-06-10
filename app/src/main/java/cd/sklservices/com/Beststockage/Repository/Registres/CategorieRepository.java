@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.Classes.Registres.Categorie;
-import cd.sklservices.com.Beststockage.Dao.Stocks.Registres.DaoCategorie;
+import cd.sklservices.com.Beststockage.Dao.Registres.DaoCategorie;
 import cd.sklservices.com.Beststockage.Outils.*;
 
 /**

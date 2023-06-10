@@ -9,9 +9,13 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncArticleProduitFacture;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncDevise;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncFournisseurTaux;
 import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncPaymentMode;
 import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncProduitFacture;
 import cd.sklservices.com.Beststockage.Repository.Parametres.ArticleProduitFactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Parametres.DeviseRepository;
+import cd.sklservices.com.Beststockage.Repository.Parametres.FournisseurTauxRepository;
 import cd.sklservices.com.Beststockage.Repository.Parametres.PaymentModeRepository;
 import cd.sklservices.com.Beststockage.Repository.Parametres.ProduitFactureRepository;
 
@@ -57,6 +61,8 @@ ServiceManageParametre extends Service {
 
         @Override
         public void onFinish() {
+            new SyncDevise(new DeviseRepository(getBaseContext())).envoi();
+            new SyncFournisseurTaux(new FournisseurTauxRepository(getBaseContext())).envoi();
             new SyncPaymentMode(new PaymentModeRepository(getApplication().getApplicationContext())).envoi();
             new SyncProduitFacture(new ProduitFactureRepository(getApplication().getApplicationContext())).envoi();
             new SyncArticleProduitFacture(new ArticleProduitFactureRepository(getApplication().getApplicationContext())).envoi();

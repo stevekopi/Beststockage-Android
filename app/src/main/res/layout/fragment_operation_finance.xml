@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.Finances.OperationFinanceView">
+    tools:context=".layout.Finances.OperationFinanceView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_width="25dp"
                 android:layout_gravity="center_horizontal"/>
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/sv_operation_finance_filter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

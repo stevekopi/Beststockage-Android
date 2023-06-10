@@ -8,6 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.app.Activity;
 import android.app.ActivityManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
@@ -36,6 +38,7 @@ import java.util.Locale;
 
 import cd.sklservices.com.Beststockage.Classes.Finances.Depense;
 import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
+import cd.sklservices.com.Beststockage.Classes.Parametres.ProduitFacture;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
 import cd.sklservices.com.Beststockage.Classes.Registres.Article;
 import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
@@ -44,7 +47,11 @@ import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Approvisionnement;
 import cd.sklservices.com.Beststockage.Classes.Stocks.LigneBonlivraison;
 import cd.sklservices.com.Beststockage.Classes.Stocks.LigneCommande;
+import cd.sklservices.com.Beststockage.Classes.Stocks.LigneFacture;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Operation;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncArticleProduitFacture;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncFournisseurTaux;
+import cd.sklservices.com.Beststockage.Cloud.Parametres.SyncProduitFacture;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAddress;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncAgence;
 import cd.sklservices.com.Beststockage.Cloud.Stocks.SyncApprovisionnement;
@@ -78,6 +85,9 @@ import cd.sklservices.com.Beststockage.Cloud.Registres.SyncTownship;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUser;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncUserRole;
 import cd.sklservices.com.Beststockage.Cloud.Registres.SyncVehicule;
+import cd.sklservices.com.Beststockage.Repository.Parametres.ArticleProduitFactureRepository;
+import cd.sklservices.com.Beststockage.Repository.Parametres.FournisseurTauxRepository;
+import cd.sklservices.com.Beststockage.Repository.Parametres.ProduitFactureRepository;
 import cd.sklservices.com.Beststockage.Repository.Registres.AddressRepository;
 import cd.sklservices.com.Beststockage.Repository.Registres.AgenceRepository;
 import cd.sklservices.com.Beststockage.Repository.Stocks.ApprovisionnementRepository;
@@ -116,12 +126,15 @@ import cd.sklservices.com.Beststockage.Outils.*;
 import cd.sklservices.com.Beststockage.ViewModel.Finances.DepenseViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Finances.OperationFinanceViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Parametres.DeviseViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Parametres.ProduitFactureViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.ApprovisionnementViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.BonLivraisonViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.BonViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.CommandeViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.FactureViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.LigneBonLivraisonViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.LigneCommandeViewModel;
+import cd.sklservices.com.Beststockage.ViewModel.Stocks.LigneFactureViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.LivraisonViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.Stocks.OperationViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.AdresseViewModel;
@@ -132,47 +145,57 @@ import cd.sklservices.com.Beststockage.ViewModel.registres.ClientViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.FournisseurViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.IdentityViewModel;
 import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
-import layout.*;
-import layout.Finances.DepenseAdd;
-import layout.Finances.DepenseUpdate;
-import layout.Finances.DepenseView;
-import layout.Finances.OperationFinanceView;
-import layout.Finances.RapportCaisseView;
-import layout.Registres.AgenceView;
-import layout.Registres.Agence_detailsView;
-import layout.Registres.ArticleView;
-import layout.Registres.Article_detailsView;
-import layout.Registres.ClientView;
-import layout.Registres.Client_detailsView;
-import layout.Registres.FournisseurView;
-import layout.Registres.Fournisseur_detailsView;
-import layout.Registres.UserView;
-import layout.Registres.UserViewAdd;
-import layout.Registres.User_detailsView;
-import layout.Stocks.BonlivraisonView;
-import layout.Stocks.BonlivraisonViewAdd2;
-import layout.Stocks.Bonlivraison_detailsView;
-import layout.Stocks.CommandeView;
-import layout.Stocks.CommandeViewAdd;
-import layout.Stocks.CommandeViewUpdate;
-import layout.Stocks.Commande_detailsView;
-import layout.Stocks.Livraison1_detailsView;
-import layout.Stocks.LivraisonView1;
-import layout.Stocks.LivraisonViewAdd1;
-import layout.Stocks.LivraisonViewUpdate1;
-import layout.Stocks.LivraisonViewUpdate2;
-import layout.Stocks.OperationAdd;
-import layout.Stocks.OperationUpdate;
-import layout.Stocks.OperationView;
-import layout.Stocks.Operation_detailsView;
-import layout.Stocks.PerformanceAgenceView;
-import layout.Stocks.StockView;
+import cd.sklservices.com.Beststockage.layout.AboutView;
+import cd.sklservices.com.Beststockage.layout.ChangePwdView;
+import cd.sklservices.com.Beststockage.layout.Home;
+import cd.sklservices.com.Beststockage.layout.HomeView;
+import cd.sklservices.com.Beststockage.layout.Finances.DepenseAdd;
+import cd.sklservices.com.Beststockage.layout.Finances.DepenseUpdate;
+import cd.sklservices.com.Beststockage.layout.Finances.DepenseView;
+import cd.sklservices.com.Beststockage.layout.Finances.OperationFinanceView;
+import cd.sklservices.com.Beststockage.layout.Finances.RapportCaisseView;
+import cd.sklservices.com.Beststockage.layout.Parametres.ArticleProduitFactureView;
+import cd.sklservices.com.Beststockage.layout.Parametres.DeviseDetailsView;
+import cd.sklservices.com.Beststockage.layout.Parametres.DeviseView;
+import cd.sklservices.com.Beststockage.layout.Parametres.FournisseurTauxView;
+import cd.sklservices.com.Beststockage.layout.Parametres.ProduitFactureDetailsView;
+import cd.sklservices.com.Beststockage.layout.Registres.AgenceView;
+import cd.sklservices.com.Beststockage.layout.Registres.Agence_detailsView;
+import cd.sklservices.com.Beststockage.layout.Registres.ArticleView;
+import cd.sklservices.com.Beststockage.layout.Registres.Article_detailsView;
+import cd.sklservices.com.Beststockage.layout.Registres.ClientView;
+import cd.sklservices.com.Beststockage.layout.Registres.Client_detailsView;
+import cd.sklservices.com.Beststockage.layout.Registres.FournisseurView;
+import cd.sklservices.com.Beststockage.layout.Registres.Fournisseur_detailsView;
+import cd.sklservices.com.Beststockage.layout.Registres.UserView;
+import cd.sklservices.com.Beststockage.layout.Registres.UserViewAdd;
+import cd.sklservices.com.Beststockage.layout.Registres.User_detailsView;
+import cd.sklservices.com.Beststockage.layout.Stocks.BonlivraisonView;
+import cd.sklservices.com.Beststockage.layout.Stocks.BonlivraisonViewAdd2;
+import cd.sklservices.com.Beststockage.layout.Stocks.Bonlivraison_detailsView;
+import cd.sklservices.com.Beststockage.layout.Stocks.CommandeView;
+import cd.sklservices.com.Beststockage.layout.Stocks.CommandeViewAdd;
+import cd.sklservices.com.Beststockage.layout.Stocks.CommandeViewUpdate;
+import cd.sklservices.com.Beststockage.layout.Stocks.Commande_detailsView;
+import cd.sklservices.com.Beststockage.layout.Stocks.FactureAdd;
+import cd.sklservices.com.Beststockage.layout.Stocks.FactureView;
+import cd.sklservices.com.Beststockage.layout.Stocks.Livraison1_detailsView;
+import cd.sklservices.com.Beststockage.layout.Stocks.LivraisonView1;
+import cd.sklservices.com.Beststockage.layout.Stocks.LivraisonViewAdd1;
+import cd.sklservices.com.Beststockage.layout.Stocks.LivraisonViewUpdate1;
+import cd.sklservices.com.Beststockage.layout.Stocks.LivraisonViewUpdate2;
+import cd.sklservices.com.Beststockage.layout.Stocks.OperationAdd;
+import cd.sklservices.com.Beststockage.layout.Stocks.OperationUpdate;
+import cd.sklservices.com.Beststockage.layout.Stocks.OperationView;
+import cd.sklservices.com.Beststockage.layout.Stocks.Operation_detailsView;
+import cd.sklservices.com.Beststockage.layout.Stocks.PerformanceAgenceView;
+import cd.sklservices.com.Beststockage.layout.Stocks.StockView;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
     public static boolean isFirstRoundSync=true;
     public static boolean isDisconnect=false;
-    public static Devise DefaultDevise,LocalDevise,ConvertDevise;
+    private static Devise DefaultDevise,LocalDevise,ConvertDevise;
 
     private static int countRound;
     private final static String COMMON_TAG="Orientation Change ";
@@ -187,6 +210,8 @@ public class MainActivity extends AppCompatActivity
 
     public static String CurrentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     public static String DefaultFinancialKey ="00000000000000000000000000000000";
+    public static Application application;
+    public static Activity activity;
     private AdresseViewModel adresseViewModel ;
     private AgenceViewModel agenceViewModel ;
     private ApprovisionnementViewModel approvisionnementViewModel ;
@@ -199,12 +224,17 @@ public class MainActivity extends AppCompatActivity
     private FournisseurViewModel fournisseurViewModel;
     private IdentityViewModel identityViewModel;
     private LigneBonLivraisonViewModel ligneBonLivraisonViewModel ;
+    private LigneFactureViewModel ligneFactureViewModel;
+    private FactureViewModel factureViewModel;
     private LivraisonViewModel livraisonViewModel ;
     private BonViewModel bonViewModel;
     private UserViewModel userViewModel;
     private OperationViewModel operationViewModel;
     private OperationFinanceViewModel operationFinanceViewModel;
     private LigneCommandeViewModel ligneCommandeViewModel;
+
+    private ProduitFactureViewModel produitFactureViewModel ;
+    private DeviseViewModel deviseViewModel ;
 
     static User current_user;
     static String last_agence_id;
@@ -217,6 +247,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        application=getApplication();
+        activity=MainActivity.this;
+
         if(MainActivity.getCurrentUser()!=null && MainActivity.getCurrentUser().getAgence()!=null){
             if(!isServiceRuning(ServiceManageStock.class))
                 startService(new Intent(getBaseContext(), ServiceManageStock.class));
@@ -228,6 +261,9 @@ public class MainActivity extends AppCompatActivity
 
         if(!isServiceRuning(ServiceManageRegistre.class))
             startService(new Intent(getBaseContext(), ServiceManageRegistre.class));
+
+        if(!isServiceRuning(ServiceManageParametre.class))
+            startService(new Intent(getBaseContext(), ServiceManageParametre.class));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -283,6 +319,10 @@ public class MainActivity extends AppCompatActivity
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
+    public static String getDate(){
+        return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+    }
+
     public void init(){
         fragmentManager=getSupportFragmentManager();
         this.agenceViewModel=new ViewModelProvider((ViewModelStoreOwner) this).get(AgenceViewModel.class) ;
@@ -300,10 +340,13 @@ public class MainActivity extends AppCompatActivity
         this.bonLivraisonViewModel = new ViewModelProvider(this).get(BonLivraisonViewModel.class) ;
         this.ligneCommandeViewModel = new ViewModelProvider(this).get(LigneCommandeViewModel.class) ;
         this.approvisionnementViewModel = new ViewModelProvider(this).get(ApprovisionnementViewModel.class) ;
-        this.ligneBonLivraisonViewModel = new ViewModelProvider(this).get(LigneBonLivraisonViewModel.class) ;
+        this.ligneFactureViewModel = new ViewModelProvider(this).get(LigneFactureViewModel.class) ;
+        this.factureViewModel = new ViewModelProvider(this).get(FactureViewModel.class) ;
         this.livraisonViewModel = new ViewModelProvider(this).get(LivraisonViewModel.class) ;
         this.bonViewModel=new ViewModelProvider(this).get(BonViewModel.class);
         this.operationFinanceViewModel=new ViewModelProvider(this).get(OperationFinanceViewModel.class);
+        this.produitFactureViewModel = new ViewModelProvider(this).get(ProduitFactureViewModel.class) ;
+        this.deviseViewModel = new ViewModelProvider(this).get(DeviseViewModel.class) ;
 
 
 //MASQUAGE DES QUELQUES VUES
@@ -315,7 +358,12 @@ public class MainActivity extends AppCompatActivity
 
         connectedUserInfo();
 
+        setDefaultDevise(new DeviseViewModel(application).getDefault());
+        setConvertDevise(new DeviseViewModel(application).getDefaultConverter());
+        setLocalDevise(new DeviseViewModel(application).getLocal());
+
     }
+
 
 
     public static  Thread RoundSyncFinished = new Thread(){
@@ -507,6 +555,10 @@ public class MainActivity extends AppCompatActivity
             fragment = new OperationView();
             addFragment1(fragment);
         }
+        else if (id == R.id.nav_facture) {
+            fragment = new FactureView();
+            addFragment1(fragment);
+        }
         else if (id == R.id.nav_performance) {
             fragment = new PerformanceAgenceView();
             addFragment1(fragment);
@@ -529,9 +581,22 @@ public class MainActivity extends AppCompatActivity
             addFragment1(fragment);
         }
         else if (id == R.id.nav_divers_autres) {
-             fragment = new HomeView() ;
-             addFragment1(fragment);
+            fragment = new HomeView() ;
+            addFragment1(fragment);
         }
+        else if (id == R.id.nav_devise) {
+            fragment = new DeviseView() ;
+            addFragment1(fragment);
+        }
+        else if (id == R.id.nav_taux) {
+            fragment = new FournisseurTauxView() ;
+            addFragment1(fragment);
+        }
+        else if (id == R.id.nav_article_produit_facture) {
+            fragment = new ArticleProduitFactureView() ;
+            addFragment1(fragment);
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -560,6 +625,16 @@ public class MainActivity extends AppCompatActivity
     public void afficherDetailsAgence(Agence instance){
          agenceViewModel.setAgence(instance);
          addFragment1(new Agence_detailsView());
+    }
+
+    public void afficherDetailsDevise(Devise instance){
+        deviseViewModel.setDevise(instance);
+        addFragment1(new DeviseDetailsView());
+    }
+
+    public void afficherDetailsProduitFacture(ProduitFacture instance){
+        produitFactureViewModel.setInstance(instance);
+        addFragment1(new ProduitFactureDetailsView());
     }
 
     public void addUser(){
@@ -654,6 +729,10 @@ public class MainActivity extends AppCompatActivity
         addFragment1(new BonlivraisonViewAdd2());
     }
 
+    public void addFacture(){
+        addFragment1(new FactureAdd());
+    }
+
     public void afficherOperationView()
     {
         fragment = new OperationView();
@@ -681,6 +760,12 @@ public class MainActivity extends AppCompatActivity
     public void afficherDetailLigneBonLivraison(LigneBonlivraison instance)
     {
         ligneBonLivraisonViewModel.setLigneBonLivraison(instance);
+        addFragment1(new Bonlivraison_detailsView());
+    }
+
+    public void afficherDetailLigneFacture(LigneFacture instance)
+    {
+        ligneFactureViewModel.setLigneFacture(instance);
         addFragment1(new Bonlivraison_detailsView());
     }
 
@@ -733,7 +818,7 @@ public class MainActivity extends AppCompatActivity
 
     public static void setLocalDevise(Application application){
         try{
-            Devise devise=new DeviseViewModel(application).getDefaultLocal();
+            Devise devise=new DeviseViewModel(application).getLocal();
             if(devise!=null){
                 LocalDevise =devise;
             }
@@ -747,7 +832,7 @@ public class MainActivity extends AppCompatActivity
         try{
             Devise devise=new DeviseViewModel(application).getDefaultConverter();
             if(devise!=null){
-                LocalDevise =devise;
+                ConvertDevise =devise;
             }
         }
         catch (Exception e){
@@ -757,7 +842,7 @@ public class MainActivity extends AppCompatActivity
 
     public static void setDefaultDevise(Application application){
         try{
-            Devise instance=new DeviseViewModel(application).getDefaultLocal();
+            Devise instance=new DeviseViewModel(application).getDefault();
             if(instance!=null){
                 DefaultDevise =instance;
             }
@@ -808,7 +893,8 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "Suppression des anciennes données", Toast.LENGTH_LONG).show();
                 this.approvisionnementViewModel.delete_all();
                 this.livraisonViewModel.delete_all();
-                this.ligneBonLivraisonViewModel.delete_all();
+                this.ligneFactureViewModel.delete_all();
+                this.factureViewModel.delete_all();
                 this.bonLivraisonViewModel.delete_all();
                 this.bonViewModel.delete_all();
             }
@@ -831,7 +917,7 @@ public class MainActivity extends AppCompatActivity
            this.operationViewModel.delete_data_old_agence(current_user.getAgence_id());
            this.operationFinanceViewModel.delete_data_old_agence(current_user.getAgence_id());
            this.depenseViewModel.delete_data_old_agence(current_user.getAgence_id());
-          /* this.ligneBonLivraisonViewModel.delete_data_old_agence(current_user.getAgence_id());
+           /* this.ligneBonLivraisonViewModel.delete_data_old_agence(current_user.getAgence_id());
            this.bonLivraisonViewModel.delete_data_old_agence(current_user.getAgence_id());
            this.bonViewModel.delete_data_old_agence(current_user.getAgence_id());
 
@@ -846,6 +932,8 @@ public class MainActivity extends AppCompatActivity
         stopService(new Intent(getBaseContext(), ServiceManageFinancial.class));
         stopService(new Intent(getBaseContext(), ServiceManageStock.class));
         stopService(new Intent(getBaseContext(), ServiceManageControle.class));
+        stopService(new Intent(getBaseContext(), ServiceManageParametre.class));
+        stopService(new Intent(getBaseContext(), ServiceManageRegistre.class));
     }
 
 
@@ -958,7 +1046,6 @@ public class MainActivity extends AppCompatActivity
             new SyncHuman(new HumanRepository(getBaseContext())).envoi();
             new SyncAgence(new AgenceRepository(getBaseContext())).envoi();
             new SyncUserRole(new UserRoleRepository(getBaseContext())).envoi();
-            new SyncDevise(new DeviseRepository(getBaseContext())).envoi();
             new SyncUser(new UserRepository(getBaseContext())).envoi();
 
             new SyncDelegue(new DelegueRepository(getBaseContext())).envoi();
@@ -972,9 +1059,11 @@ public class MainActivity extends AppCompatActivity
             new SyncContenance(new ContenanceRepository(getBaseContext())).envoi();
             new SyncArticle(new ArticleRepository(getBaseContext())).envoi();
 
-           //STOCK
-          //  new SyncCommande(new CommandeRepository(getBaseContext())).envoi();
-           // new SyncLigneCommande(new LigneCommandeRepository(getBaseContext())).envoi();
+           //PARAMETRES
+            new SyncProduitFacture(new ProduitFactureRepository(getBaseContext())).envoi();
+            new SyncDevise(new DeviseRepository(getBaseContext())).envoi();
+            new SyncArticleProduitFacture(new ArticleProduitFactureRepository(getBaseContext())).envoi();
+            new SyncFournisseurTaux(new FournisseurTauxRepository(getBaseContext())).envoi();
 
             restart_timer();
         }
@@ -1006,7 +1095,17 @@ public class MainActivity extends AppCompatActivity
         return this.getApplication();
 }
 
+    public static void setDefaultDevise(Devise defaultDevise) {
+        DefaultDevise = defaultDevise;
+    }
 
+    public static void setLocalDevise(Devise localDevise) {
+        LocalDevise = localDevise;
+    }
+
+    public static void setConvertDevise(Devise convertDevise) {
+        ConvertDevise = convertDevise;
+    }
 }
 
 

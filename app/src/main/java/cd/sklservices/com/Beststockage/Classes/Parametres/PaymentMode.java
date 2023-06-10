@@ -6,11 +6,8 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import cd.sklservices.com.Beststockage.Classes.ModelBase;
 import cd.sklservices.com.Beststockage.Classes.ModelBaseXR;
 import cd.sklservices.com.Beststockage.Classes.Registres.Agence;
-import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
-import cd.sklservices.com.Beststockage.Classes.Registres.Identity;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
 
 @Entity(tableName = "payment_mode",indices = {@Index("id")},
@@ -25,9 +22,9 @@ public class PaymentMode extends ModelBaseXR {
     @NonNull
     private String id;
     private String designation;
-    private boolean is_default;
+    private int is_default;
 
-    public PaymentMode(String id,String designation,boolean is_default,String adding_agence_id,String adding_user_id, String last_update_user_id, String adding_date, String updated_date, int sync_pos, int pos) {
+    public PaymentMode(String id,String designation,int is_default,String adding_agence_id,String adding_user_id, String last_update_user_id, String adding_date, String updated_date, int sync_pos, int pos) {
         super(adding_user_id, last_update_user_id, adding_agence_id, adding_date, updated_date, sync_pos, pos);
         this.id=id;
         this.designation=designation;
@@ -51,11 +48,11 @@ public class PaymentMode extends ModelBaseXR {
         this.designation = designation;
     }
 
-    public boolean isIs_default() {
+    public int getIs_default() {
         return is_default;
     }
 
-    public void setIs_default(boolean is_default) {
+    public void setIs_default(int is_default) {
         this.is_default = is_default;
     }
 }

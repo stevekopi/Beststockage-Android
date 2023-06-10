@@ -114,7 +114,4 @@ public class BonLivraisonViewModel extends AndroidViewModel {
         }
 
     }
-
-
-
 }

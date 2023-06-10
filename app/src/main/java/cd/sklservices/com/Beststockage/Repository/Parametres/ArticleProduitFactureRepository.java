@@ -76,7 +76,25 @@ public class ArticleProduitFactureRepository {
         return null;
     }
 
+    public List<ArticleProduitFacture> loadingByProduit(String produitId) {
+        try{
+            return daoarticleProduitFacture.loadingByProduit(produitId);
+        }
+        catch (Exception e){
 
+        }
+        return null;
+    }
+
+    public List<ArticleProduitFacture> loading() {
+        try{
+            return daoarticleProduitFacture.loading();
+        }
+        catch (Exception e){
+
+        }
+        return null;
+    }
 
     public AsyncTask delete_all()
     {
@@ -114,4 +132,33 @@ public class ArticleProduitFactureRepository {
         return context;
     }
 
+    public int count(){
+        return daoarticleProduitFacture.count();
+    }
+
+
+    public ArticleProduitFacture[] getByProduitFactureId(String produitFactureId){
+        try{
+            int k = 0 ;
+
+            ArticleProduitFacture[] instances = null ;
+
+            List<ArticleProduitFacture> articleProduitFactures =
+                    daoarticleProduitFacture.getByProduitFactureId(produitFactureId);
+
+            instances=new ArticleProduitFacture[articleProduitFactures.size()];
+
+            for (ArticleProduitFacture ligne : articleProduitFactures){
+
+                instances[k] = ligne ;
+                k++ ;
+            }
+            return instances;
+
+        }
+        catch (Exception e){
+            Log.d("Assert","LigneFactureRepository.getByFactureId(): "+e.toString());
+            return  null;
+        }
+    }
 }

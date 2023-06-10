@@ -71,7 +71,19 @@ public class DeviseRepository {
 
         }
         catch (Exception e){
-            Log.d("Assert"," DaoAgenceLoc.get() "+e.toString());
+            Log.d("Assert"," DeviseRepository.get() "+e.toString());
+        }
+        return null;
+    }
+
+    public Devise getDefault(){
+
+        try{
+            return daodevise.getDefault() ;
+
+        }
+        catch (Exception e){
+            Log.d("Assert"," DeviseRepository.getDefault() "+e.toString());
         }
         return null;
     }
@@ -83,15 +95,15 @@ public class DeviseRepository {
 
         }
         catch (Exception e){
-            Log.d("Assert"," DaoAgenceLoc.getDefaultConverter() "+e.toString());
+            Log.d("Assert"," DeviseRepository.getDefaultConverter() "+e.toString());
         }
         return null;
     }
 
-    public Devise getDefaultLocal(){
+    public Devise getLocal(){
 
         try{
-            return daodevise.getDefaultLocal() ;
+            return daodevise.getLocal() ;
 
         }
         catch (Exception e){
@@ -117,7 +129,7 @@ public class DeviseRepository {
 
         }
         catch (Exception e){
-            Log.d("Assert","Dao Devise.getsErreur: "+e.toString());
+            Log.d("Assert","DeviseRepository.gets Erreur: "+e.toString());
         }
     }
 
@@ -138,9 +150,23 @@ public class DeviseRepository {
         else{return  devise.getId();}
     }
 
+    public void setDevise(Devise instance){
+        DeviseRepository.devise=instance;
+    }
+
+    public Devise getDevise(){
+        return DeviseRepository.devise;
+    }
 
     public static final Context getContext(){
         return context;
     }
 
+    public int count(){
+        return daodevise.count();
+    }
+
+    public List<Devise> loading(){
+        return daodevise.loading();
+    }
 }

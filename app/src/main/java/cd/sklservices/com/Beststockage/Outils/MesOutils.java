@@ -141,6 +141,13 @@ public abstract class MesOutils {
         return  day.concat(" "+month+" "+year);
     }
 
+    public static String Get_date_en_francais_et_heure(String date){
+
+        String heure=date.substring(11,19);
+
+        return  Get_date_en_francais(date)+" à "+heure;
+    }
+
     public static String replace_accents(String source){
         String obs=source.replace('é','e');
         obs=obs.replace('è','e');

@@ -5,6 +5,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
+import java.util.List;
+
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
 import cd.sklservices.com.Beststockage.Classes.Parametres.Devise;
 import cd.sklservices.com.Beststockage.Repository.Parametres.DeviseRepository;
@@ -33,9 +35,14 @@ public class DeviseViewModel extends AndroidViewModel {
         return repository.get(id) ;
     }
 
-    public Devise getDefaultLocal()
+    public Devise getDefault()
     {
-        return repository.getDefaultLocal() ;
+        return repository.getDefault() ;
+    }
+
+    public Devise getLocal()
+    {
+        return repository.getLocal() ;
     }
 
     public Devise getDefaultConverter()
@@ -46,5 +53,21 @@ public class DeviseViewModel extends AndroidViewModel {
     public void delete_all()
     {
         repository.delete_all() ;
+    }
+
+    public void setDevise(Devise instance){
+        repository.setDevise(instance);
+    }
+
+    public Devise getDevise(){
+        return repository.getDevise();
+    }
+
+    public int count(){
+        return repository.count();
+    }
+
+    public List<Devise> loading(){
+        return repository.loading();
     }
 }

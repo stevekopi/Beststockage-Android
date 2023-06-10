@@ -42,7 +42,7 @@ public class SyncPaymentMode extends DaoDist implements AsyncResponse {
                                 JSONObject info=new JSONObject(instances.get(k).toString());
                                 String id=info.getString("Id");
                                 String designation=info.getString("Designation");
-                                Boolean is_default =info.getBoolean("IsDefault");
+                                int is_default =info.getInt("IsDefault");
                                 String aa_id=info.getString("AddingAgenceId");
                                 String au_id=info.getString("AddingUserId");
                                 String luu_id=info.getString("LastUpdateUserId");

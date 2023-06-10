@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFullBackGroundFragment"
-    tools:context="layout.Registres.UserView">
+    tools:context=".layout.Registres.UserView">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -27,7 +27,7 @@
             android:gravity="center"
             android:text="." />
 
-        <SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/sv_users_filter"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -49,7 +49,6 @@
             android:orientation="vertical"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_user"
