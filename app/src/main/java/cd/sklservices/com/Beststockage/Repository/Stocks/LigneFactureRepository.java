@@ -88,6 +88,17 @@ public class LigneFactureRepository {
         }
     }
 
+    public List<LigneFacture> getListByFactureId(String factureId){
+        try{
+
+            return daoligne.get_by_facture_id(factureId);
+        }
+        catch (Exception e){
+            Log.d("Assert","LigneFactureRepository.getByFactureId(): "+e.toString());
+            return  null;
+        }
+    }
+
     public int add_async(LigneFacture instance)
     {
         try{

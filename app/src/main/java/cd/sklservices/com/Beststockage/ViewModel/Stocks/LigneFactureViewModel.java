@@ -94,4 +94,8 @@ public class LigneFactureViewModel extends AndroidViewModel {
         return repository.getByFactureId(Id) ;
     }
 
+    public List<LigneFacture> getListByFactureId(String Id){
+        return repository.getListByFactureId(Id) ;
+    }
+
 }

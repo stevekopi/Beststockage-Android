@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -46,9 +47,10 @@ public class FactureView extends Fragment {
     private IdentityViewModel identityViewModel;
 
     View loadingProgress;
-    FloatingActionButton btn_add ;
+    FloatingActionButton btn_add;
 
     ExpandableListView expandableListView;
+
     TextView tv_date_count;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -179,10 +181,10 @@ public class FactureView extends Fragment {
             data.add(thirdlevel);
         }
 
-        expandableListView=(ExpandableListView) rootView.findViewById(R.id.elv_facture);
+        expandableListView=rootView.findViewById(R.id.elv_facture);
 
         FactureTreeLevelListViewAdapter factureTreeLevelListViewAdapter =
-                new FactureTreeLevelListViewAdapter(getContext(), articleProduitFactureViewModel,identityViewModel, userViewModel, parent,secondlevel,data);
+                new FactureTreeLevelListViewAdapter(getContext(), parent,secondlevel,data);
 
         expandableListView.setAdapter(factureTreeLevelListViewAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -213,9 +215,9 @@ public class FactureView extends Fragment {
         // Inflate the layout for this fragment
 
 
-        tv_date_count =(TextView)rootView.findViewById(R.id.tv_facture_count);
+        tv_date_count =rootView.findViewById(R.id.tv_facture_count);
 
-        btn_add =(FloatingActionButton)rootView.findViewById(R.id.btn_add_facture);
+        btn_add =rootView.findViewById(R.id.btn_add_facture);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,6 +225,8 @@ public class FactureView extends Fragment {
                 ((MainActivity)getActivity()).addFacture();
             }
         });
+
+
 
 
         setUpAdapter();

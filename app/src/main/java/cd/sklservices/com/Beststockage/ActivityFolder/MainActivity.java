@@ -45,6 +45,7 @@ import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
 import cd.sklservices.com.Beststockage.Classes.Registres.Identity;
 import cd.sklservices.com.Beststockage.Classes.Registres.User;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Approvisionnement;
+import cd.sklservices.com.Beststockage.Classes.Stocks.Facture;
 import cd.sklservices.com.Beststockage.Classes.Stocks.LigneBonlivraison;
 import cd.sklservices.com.Beststockage.Classes.Stocks.LigneCommande;
 import cd.sklservices.com.Beststockage.Classes.Stocks.LigneFacture;
@@ -178,6 +179,7 @@ import cd.sklservices.com.Beststockage.layout.Stocks.CommandeViewAdd;
 import cd.sklservices.com.Beststockage.layout.Stocks.CommandeViewUpdate;
 import cd.sklservices.com.Beststockage.layout.Stocks.Commande_detailsView;
 import cd.sklservices.com.Beststockage.layout.Stocks.FactureAdd;
+import cd.sklservices.com.Beststockage.layout.Stocks.FactureDetailsView;
 import cd.sklservices.com.Beststockage.layout.Stocks.FactureView;
 import cd.sklservices.com.Beststockage.layout.Stocks.Livraison1_detailsView;
 import cd.sklservices.com.Beststockage.layout.Stocks.LivraisonView1;
@@ -665,6 +667,12 @@ public class MainActivity extends AppCompatActivity
         ligneCommandeViewModel.setLigneCommande(instance);
         addFragment1(new Commande_detailsView());
     }
+
+    public void afficherDetailsFacture(Facture instance){
+        factureViewModel.setFacture(instance);
+        addFragment1(new FactureDetailsView());
+    }
+
 
     public void afficherDetailsLivraison1(Approvisionnement instance){
         approvisionnementViewModel.setapprovisionnement(instance);

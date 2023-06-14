@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Facture;
+import cd.sklservices.com.Beststockage.Classes.Stocks.LigneCommande;
 import cd.sklservices.com.Beststockage.Repository.Stocks.FactureRepository;
 
 /**
@@ -164,6 +166,17 @@ private FragmentActivity fragmentActivity;
 
     public List<String> getDistinctDates(){
         return repository.getDistinctDates() ;
+    }
+
+    public void setFacture(Facture facture)
+    {
+        repository.setFacture(facture);
+    }
+
+
+    public Facture getFacture()
+    {
+        return repository.getFacture() ;
     }
 
 }

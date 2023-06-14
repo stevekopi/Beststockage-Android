@@ -5,54 +5,71 @@
     android:layout_height="wrap_content"
     android:background="@color/colorFullBackGroundFragment"
     android:orientation="vertical"
-    tools:context=".layout.Stocks.CommandeView">
 
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".layout.Stocks.FactureView">
 
     <LinearLayout
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-           <TextView
-               android:id="@+id/tv_facture_row_third_article_description"
-               android:layout_width="200dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:gravity="center"
-               android:textColor="@color/colorBackgrounLayoutNoir1"
-               android:text="TextView" />
+            <TextView
+                android:id="@+id/tv_facture_row_third_article_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/colorPrimaryDark" />
+            <TextView
+                android:id="@+id/tv_facture_row_third_article_bonus_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/colorPrimary" />
 
-           <TextView
-               android:id="@+id/tv_facture_row_third_quantite"
-               android:layout_width="60dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:paddingLeft="5dp"
-               android:text="TextView" />
-           <TextView
-               android:id="@+id/tv_facture_row_third_bonus"
-               android:layout_width="50dp"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:paddingLeft="5dp"
-               android:text="TextView" />
-           <TextView
-               android:id="@+id/tv_facture_row_third_montant_net"
-               android:layout_width="150dp"
-               android:layout_height="wrap_content"
-               android:layout_marginEnd="5dp"
-               android:elevation="1dp"
-               android:gravity="end"
-               android:text="TextView"
-               android:textStyle="bold" />
-       </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_facture_row_third_quantite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tv_facture_row_third_bonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/tv_facture_row_third_montant_net"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:text="TextView"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
+
+
 </LinearLayout>
 
 

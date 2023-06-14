@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cd.sklservices.com.Beststockage.ActivityFolder.MainActivity;
+import cd.sklservices.com.Beststockage.Classes.Registres.Fournisseur;
 import cd.sklservices.com.Beststockage.Classes.Stocks.Facture;
 import cd.sklservices.com.Beststockage.Dao.Stocks.DaoFacture;
 import cd.sklservices.com.Beststockage.Dao.Stocks.DaoLigneFacture;
@@ -319,7 +320,10 @@ public class FactureRepository {
     }
 
 
-
+    public Facture getFacture(){
+        if (facture==null){return null;}
+        else{return  facture;}
+    }
 
 
 }

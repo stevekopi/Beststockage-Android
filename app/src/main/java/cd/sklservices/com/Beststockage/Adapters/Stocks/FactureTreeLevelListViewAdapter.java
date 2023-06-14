@@ -30,24 +30,17 @@ import cd.sklservices.com.Beststockage.ViewModel.registres.UserViewModel;
 
 public class FactureTreeLevelListViewAdapter extends BaseExpandableListAdapter {
 
-    private ArticleProduitFactureViewModel articleProduitFactureViewModel;
-    private UserViewModel userViewModel;
-    private IdentityViewModel identityViewModel;
     List<String> parentHeaders;
     List<Facture[]>secondLevel;
     private Context context;
     List<LinkedHashMap<String, LigneFacture[]>> data;
 
-    public FactureTreeLevelListViewAdapter(Context context, ArticleProduitFactureViewModel articleProduitFactureViewModel,IdentityViewModel identityViewModel, UserViewModel userViewModel ,
-                                           List<String> parentHeaders, List<Facture[]>secondLevel,
-                                           List<LinkedHashMap<String,LigneFacture[]>> data){
+    public FactureTreeLevelListViewAdapter(Context context,List<String> parentHeaders, List<Facture[]>secondLevel,List<LinkedHashMap<String,LigneFacture[]>> data){
         this.context=context;
         this.secondLevel=secondLevel;
         this.parentHeaders=parentHeaders;
         this.data=data;
-        this.articleProduitFactureViewModel = articleProduitFactureViewModel ;
-        this.identityViewModel = identityViewModel;
-        this.userViewModel = userViewModel ;
+
     }
 
     @Override
@@ -157,7 +150,7 @@ public class FactureTreeLevelListViewAdapter extends BaseExpandableListAdapter {
                 childData.add(secondLevelData.get(key));
             }
 
-           secondLevelELV.setAdapter(new FactureSecondLevelAdapter(context, articleProduitFactureViewModel, identityViewModel,userViewModel, headers, childData));
+           secondLevelELV.setAdapter(new FactureSecondLevelAdapter(context, headers, childData));
            secondLevelELV.setGroupIndicator(null);
 
             secondLevelELV.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {

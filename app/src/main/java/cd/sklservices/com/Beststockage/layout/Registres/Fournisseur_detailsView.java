@@ -33,7 +33,6 @@ public class Fournisseur_detailsView extends Fragment {
     View rootView;
     private FournisseurViewModel fournisseurViewModel ;
     private ArticleViewModel articleViewModel ;
-    private CategorieViewModel categorieViewModel ;
 
     ListView  listViewFournisseur;
     TextView tv_name;
@@ -51,16 +50,11 @@ public class Fournisseur_detailsView extends Fragment {
 
         this.fournisseurViewModel = new ViewModelProvider(this).get(FournisseurViewModel.class) ;
         this.articleViewModel = new ViewModelProvider(this).get(ArticleViewModel.class) ;
-        this.categorieViewModel = new ViewModelProvider(this).get(CategorieViewModel.class) ;
 
         listViewFournisseur=rootView.findViewById(R.id.lv_details_fournisseur);
         lvArticles =rootView.findViewById(R.id.lv_details_fournisseur_article);
         tv_name=rootView.findViewById(R.id.tv_details_fournisseur_name);
 
-       //  tv_nom =(TextView)rootView.findViewById(R.id.tv_details_fournisseur_nom);
-       // tv_tel =(TextView)rootView.findViewById(R.id.tv_details_fournisseur_tel);
-
-       //  tv_adresse=(TextView) rootView.findViewById(R.id.tv_details_fournisseur_adresse);
         fillData();
 
     }

@@ -34,72 +34,50 @@
 
         <LinearLayout
             android:id="@+id/ll_facture_agence_block_stock"
-            android:layout_width="550dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_facture_row_second_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:text="TextView"
-                android:textSize="10sp" />
-
-            <LinearLayout
+                android:id="@+id/tv_facture_row_second_proprietaire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_facture_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingBottom="1dp"
-                    android:gravity="center_vertical|left"
-                    android:text="Par : "
-                    android:textSize="9sp" />
-
-                <TextView
-                    android:id="@+id/tv_facture_row_second_produit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="4dp"
-                    android:paddingBottom="1dp"
-                    android:gravity="center_vertical|left"
-                    android:text="Produit"
-                    android:textColor="#000000"
-                    android:textSize="9sp" />
-
-            </LinearLayout>
+                android:paddingLeft="5dp"
+                android:paddingBottom="1dp"
+                android:gravity="center_vertical|left"
+                android:text="Proprietaire "
+                android:paddingTop="10dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_facture_row_second_proprietaire"
+                android:id="@+id/tv_facture_row_second_agence_denomination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="Agence"
+                android:textColor="#FF0000"
+                android:textSize="13sp" />
+
+
+            <TextView
+                android:id="@+id/tv_facture_row_second_produit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="4dp"
                 android:paddingBottom="1dp"
                 android:gravity="center_vertical|left"
-                android:text="Proprietaire "
+                android:text="Produit"
                 android:textColor="#000000"
-                android:textSize="15sp" />
+                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_facture_row_second_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingBottom="5dp"
-                android:text="User"
-                android:textSize="9sp"/>
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_facture_agence_block_3"
-            android:layout_width="match_parent"
+            android:layout_width="180sp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -113,6 +91,14 @@
                 android:text=" * "
                 android:textSize="18sp"
                 android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_facture_second_row_details"
+                android:layout_width="80sp"
+                android:layout_height="50dp"
+                android:background="#F5F5F5"
+                android:textColor="#0000FF"
+                android:textAlignment="center"
+                android:text="Détails"/>
 
         </LinearLayout>
     </LinearLayout>

@@ -94,6 +94,8 @@ public class Facture extends ModelBaseXR implements Cloneable{
     private double montant_net;
     @Ignore
     private double montant_local;
+    @Ignore
+    private double tva;
 
     @Ignore
     public Facture(){
@@ -385,4 +387,17 @@ public class Facture extends ModelBaseXR implements Cloneable{
         return (Facture) clone();
     }
 
+    public double getTva() {
+
+        if(Lines.size()>0){
+            for(LigneFacture ligneFacture:Lines){
+                tva+=ligneFacture.getTva();
+            }
+        }
+        return tva;
+    }
+
+    public void setTva(double tva) {
+        this.tva = tva;
+    }
 }

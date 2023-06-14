@@ -67,7 +67,7 @@ public class BonlivraisonSecondLevelAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.livraison_row_third, null);
+        convertView = inflater.inflate(R.layout.bonlivraison_row_third, null);
 
         try {
 
@@ -123,7 +123,7 @@ public class BonlivraisonSecondLevelAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView=inflater.inflate(R.layout.livraison_row_second,null);
+        convertView=inflater.inflate(R.layout.bonlivraison_row_second,null);
         try {
             TextView tvNumeroBon = (TextView) convertView.findViewById(R.id.tv_livraison_row_second_numeroBon);
             TextView tvUser = (TextView) convertView.findViewById(R.id.tv_livraison_row_second_user);
